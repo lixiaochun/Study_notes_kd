@@ -1,0 +1,109 @@
+touch:
+-> touch.h
+加载视听采集模块；
+重载CWinApp；
+
+OnlyStartOne()
+打印信息API
+
+-> touch.cpp
+map ON_COMMAND(ID_HELP, &CWinApp::OnHelp)
+
+// 创建唯一的CtouchApp对象
+CtouchApp theApp;
+
+// 抓捕异常信息
+ApplicationCrashHandler(EXCEPTION_POINTERS *pException)
+	//创建、填充、写入Dump文件
+
+// 程序主入口
+BOOL CtouchApp::InitInstance()
+    //只开启一个程序实例，否则退出
+	OnlyStartOne()  //检索数据句柄，存在重复则false
+	//判断是否有权限调用拷屏库AVCollection.dll，否则退出
+	IsAvAuthPassed()  //密码先调用AvMd5Encode加密，再传入AvCheckAuth中校验
+	//关闭windows自动播放窗口
+	CloseAutoPlayWindow();  //遍历所有窗口，寻找到指定窗口，SendMessage(hWndPrevious, WM_CLOSE, NULL, NULL)
+	//设置系统重启、关闭时程序关闭顺序
+	SetProcessShutdownParameters(0x100, SHUTDOWN_NORETRY);
+	//设置进程优先级为最高
+	SetPriorityClass(GetCurrentProcess(),REALTIME_PRIORITY_CLASS);
+	//获取winodws控制面板中“放大或缩小文本和其他项目”的值
+	GetZoomScaleValue();
+	//设置默认字体
+	SetDefaultFont();
+	//使用COM
+	CoInitialize(NULL);
+	//使用 ComCtl32.dll 版本 6 或更高版本来启用可视化方式
+	InitCommonControlsEx(&InitCtrls);
+	//基类InitInstance
+	CWinApp::InitInstance();
+	//初始化GDI+函数库
+	GdiplusStartup( &gdiplusToken, &gdiplusStartupInput, NULL );
+	//允许应用程序作为控件容器来使用
+	AfxEnableControlContainer();
+	//创建shell管理器，以防对话框包含任何shell树视图控件或shell列表视图控件。
+	CShellManager *pShellManager = new CShellManager;
+	//抓捕异常文件
+	::SetUnhandledExceptionFilter((LPTOP_LEVEL_EXCEPTION_FILTER)ApplicationCrashHandler);  //cash代码
+	//osp初始化
+	OspInit( bTelnet);
+	OspSetPrompt(DEF_TELNET_NAME);
+	
+	//调用CMsgDispatch的初始化函数
+	CMsgDispatch::Init();
+	//设置数据句柄
+*	CtouchDlg dlg;
+	::SetProp( m_pMainWnd->GetSafeHwnd(), AfxGetApp()->m_pszAppName, (HANDLE)1 );
+	//显示模态对话框
+	INT_PTR nResponse = dlg.DoModal();	
+	//删除上面创建的 shell 管理器。
+	delete pShellManager;
+	//由于对话框已关闭，所以将返回FALSE以便退出应用程序，而不是启动应用程序的消息泵。
+	::RemoveProp(m_pMainWnd->GetSafeHwnd(), AfxGetApp()->m_pszAppName);	
+end
+
+-> touchDlg.cpp
+// 窗口显示前初始化
+CtouchDlg::OnInitDialog()
+	// 父类初始化
+	CDialogEx::OnInitDialog();
+	// 修改添加菜单选项
+	CMenu* pSysMenu = GetSystemMenu(FALSE);
+	// 设置窗口标题
+	SetWindowText(_T(DEF_TELNET_NAME));
+	
+*	// 初始化UI
+	InitUI();  // creat CMainDlg & CBannerDlg
+	
+	//视频的hid设备同步打开
+	//音频的hid设备同步打开
+	//命令的hid异步打开
+	m_bHidOpen = HID_OpenDevice(...)
+	
+	
+*	OnOpenHidDevSuccess(0, 0);
+		-> 创建temp临时文件夹，即台标路径
+		-> 获取版本号和时间， PRINTMSG
+		// m_bHidOpen == true
+		-> HID_RegisterDeviceNotification  // 注册通知窗口  //PRINTMSG 打印所有的HID设备信息
+			-> RegisterDeviceNotification
+		// 创建读取usb_hid线程
+	*	-> m_pcReadThread = AfxBeginThread(ThreadRead, this);
+			-> HID_RecvData4Device		// 监听设备发送的信息
+			-> SolveReadInfo  //处理接受到的信息
+		// 创建ppt线程
+	*	-> AfxBeginThread(ThreadPpt, this);  //
+		// 设置台标
+		SetLogo();
+		//设置音频及回调
+		InitEncoderParam();
+		//检查音频设备
+		CheckDedaultAudioDevice();
+		//检测笔记本电池电量定时器
+		SetTimer(BatteryPowerTimerID, 30000, NULL);
+		//定时发送版本给业务直到收到回复
+		SetTimer(SendVersionTimerID, 300, NULL);
+	
+	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
+end
