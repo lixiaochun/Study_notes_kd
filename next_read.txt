@@ -73,33 +73,67 @@ CtouchDlg::OnInitDialog()
 	// 设置窗口标题
 	SetWindowText(_T(DEF_TELNET_NAME));
 	
-*	// 初始化UI
+*	// 初始化UI   // --TORD
 	InitUI();  // creat CMainDlg & CBannerDlg
 	
 	//视频的hid设备同步打开
 	//音频的hid设备同步打开
 	//命令的hid异步打开
-	m_bHidOpen = HID_OpenDevice(...)
-	
-	
+*	m_bHidOpen = HID_OpenDevice(...)  // --TORD
+
 *	OnOpenHidDevSuccess(0, 0);
 		-> 创建temp临时文件夹，即台标路径
 		-> 获取版本号和时间， PRINTMSG
-		// m_bHidOpen == true
+
+		// m_bHidOpen == true  // HID设备已打开
 		-> HID_RegisterDeviceNotification  // 注册通知窗口  //PRINTMSG 打印所有的HID设备信息
 			-> RegisterDeviceNotification
+
 		// 创建读取usb_hid线程
 	*	-> m_pcReadThread = AfxBeginThread(ThreadRead, this);
-			-> HID_RecvData4Device		// 监听设备发送的信息
-			-> SolveReadInfo  //处理接受到的信息
+			// while(!pThis->m_bReadExit)
+			-> HID_RecvData4Device		// 读取设备发送给主机的数据, recvDataBuf获取读取数据, commInterfaceDll
+			-> CtouchDlg::SolveReadInfo  			// 处理读取到的信息, 根据首字节的Type
+				switch (byCmdType)
+				-> Ev_NV_StartProjecting_Ntf:
+				-> Ev_NV_ImaxStopPic_Ntf:
+				-> Ev_NV_NetConnectStatus_Ntf:
+				...
+
 		// 创建ppt线程
-	*	-> AfxBeginThread(ThreadPpt, this);  //
+	*	-> AfxBeginThread(ThreadPpt, this);  // PPT正在播放非投屏时, PPT未播放投屏时, 发送消息
+			// while (!pThis->m_bPptExit)
+			-> SendMessage(., WM_PPT_PLAY_MSG, (WPARAM)EM_PPT_PLAYING, 0);//PPT正在播放
+			or
+			-> SendMessage(., WM_PPT_PLAY_MSG, (WPARAM)EM_PPT_NO_PLAY, 0);//PPT未播放
+			
+			...CtouchDlg::OnPptPlay对应消息处理，  // 最终将数据写入到设备  //发送xxx命令
+			-> CtouchDlg::SendPptCmdToHid( EM_PPT_PLAYING );
+				-> HID_SendData2Device  // 填充前两字节做发送内容, commInterfaceDll
+					-> WriteFile  // 异步写入数据到设备, 首字节填充Type类型（8/7/6）
+			or
+			-> CtouchDlg::SendPptCmdToHid( EM_PPT_NO_PLAY );
+				-> HID_SendData2Device  // 填充前两字节做发送内容, commInterfaceDll
+					-> WriteFile  // 异步写入数据到设备, 首字节填充Type类型（8/7/6）
+	
 		// 设置台标
-		SetLogo();
-		//设置音频及回调
-		InitEncoderParam();
+		SetLogo();  // --TORD
+		//设置音频及回调  // 桌面抓取初始化
+		InitEncoderParam();		//设置音频，注册三个回调函数
+			-> m_cEncoder.SetAudioEncParam(byAudioMode,wAudioDuration)  // 设置音频
+			
+			-> m_cEncoder.SetDeskSharedVidCallback(&CapScreenVidStart, 0)  // 视频编码回调
+				-> CapScreenVidStart
+					// 分包发送，将数据push到list中 
+					//datalistclass部分
+					// 还需判断业务是否挂掉
+					-> CtouchDlg::SendCmdToHid( int nCmd )  // 根据ncmd, 调用HID_SendData2Device, 发送指令
+			-> m_cEncoder.SetDeskSharedAudCallback(&CapScreenAudStart, 0)  // 音频编码回调
+			-> m_cEncoder.SetVideoCapStdCB(&VideoCapStdCB, 0)  // 采集分辨率回调
+		
 		//检查音频设备
 		CheckDedaultAudioDevice();
+		
 		//检测笔记本电池电量定时器
 		SetTimer(BatteryPowerTimerID, 30000, NULL);
 		//定时发送版本给业务直到收到回复
@@ -107,3 +141,63 @@ CtouchDlg::OnInitDialog()
 	
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 end
+
+
+
+
+
+
+
+
+
+
+// question: 
+1）同步、异步数据的读写？？
+2）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
