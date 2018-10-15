@@ -19,7 +19,7 @@ ApplicationCrashHandler(EXCEPTION_POINTERS *pException)
 // 程序主入口
 BOOL CtouchApp::InitInstance()
     //只开启一个程序实例，否则退出
-	OnlyStartOne()  //检索数据句柄，存在重复则false
+	OnlyStartOne()  //检索数据句柄，存在重复则置前显示该窗口，并return false
 	//判断是否有权限调用拷屏库AVCollection.dll，否则退出
 	IsAvAuthPassed()  //密码先调用AvMd5Encode加密，再传入AvCheckAuth中校验
 	//关闭windows自动播放窗口
@@ -148,26 +148,43 @@ end
 
 
 
+-> MainDlg.cpp
+// 主界面初始化
+CMainDlg::OnInitDialog()
+	-> SetWindowPos  // 根据屏幕api设定显示大小和位置
+	-> CBaseDlg::OnInitDialog()  // 父类初始化
+	-> InitUI();  // 界面初始化
+	-> SetWindowText(_T("touch"))  // 设置标题
+	-> ShowConnectStatus(NET_STATUS_CONNECTING)  // 显示初始连接状态
+end
 
-
+-> BannerDlg.cpp
+// 投屏界面初始化
+BOOL CBannerDlg::OnInitDialog()
+	-> CBaseDlg::OnInitDialog()  //父类初始化
+	-> InitUI()  // 界面初始化
 
 // question: 
 1）同步、异步数据的读写？？
-2）
+3）创建shell 管理器 ？？
+4）touchDlg 窗口不显示
 
 
 
 
 
+==========================tserver 模块 =================
+tserver.cpp
+// 程序初始化入口
+BOOL CtserviceApp::InitInstance()
 
 
 
 
 
-
-
-
-
+// question：
+1）OnlyStartOne //FindWindow、 SetForegroundWindow是否必要
+2）LoadIcon
 
 
 
