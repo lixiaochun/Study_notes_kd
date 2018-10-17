@@ -66,7 +66,7 @@ protected:
     bool OnJudgeCurPassword(TNotifyUI& msg);
     bool OnInputNewPassword(TNotifyUI& msg);
     bool OnInputNewPwdChange(TNotifyUI& msg);
-    bool OnJudgeMewPassword(TNotifyUI& msg);
+    bool OnJudgeNewPassword(TNotifyUI& msg);
     bool OnInputConfirmNewPassword(TNotifyUI& msg);
     bool OnJudgeConfirmNewPassword(TNotifyUI& msg);
     bool OnCurPwdVisibleClicked(TNotifyUI& msg);

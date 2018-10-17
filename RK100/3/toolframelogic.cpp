@@ -19,7 +19,7 @@ APP_BEGIN_MSG_MAP(CToolFrameLogic, CNotifyUIImpl)
     MSG_KILLFOCUS(_T("InputCurPwd"), OnJudgeCurPassword)
     MSG_SETFOCUS(_T("InputNewPwd"), OnInputNewPassword)
     MSG_TEXTCHANGED(_T("InputNewPwd"), OnInputNewPwdChange)
-    MSG_KILLFOCUS(_T("InputNewPwd"), OnJudgeMewPassword)
+    MSG_KILLFOCUS(_T("InputNewPwd"), OnJudgeNewPassword)
     MSG_SETFOCUS(_T("ConfirmNewPwd"), OnInputConfirmNewPassword)
     MSG_KILLFOCUS(_T("ConfirmNewPwd"), OnJudgeConfirmNewPassword)
     MSG_CLICK(_T("CurPwdVisSwitchBtn"), OnCurPwdVisibleClicked)
@@ -156,7 +156,7 @@ bool CToolFrameLogic::OnInputNewPassword(TNotifyUI& msg)
         return true;
     }
 
-    m_pm->DoCase(_T("caseInputConfirmNewPwd"));
+    m_pm->DoCase(_T("caseInputNewPwd"));
     return true;
 }
 
@@ -208,8 +208,14 @@ bool CToolFrameLogic::OnInputNewPwdChange(TNotifyUI& msg)
     return true;
 }
 
-bool CToolFrameLogic::OnJudgeMewPassword(TNotifyUI& msg)
+bool CToolFrameLogic::OnJudgeNewPassword(TNotifyUI& msg)
 {
+	CButtonUI *pControl = (CButtonUI*)IRkcToolCommonOp::FindControl( m_pm, _T("NewPwdVisSwitchBtn") );
+	if (pControl)
+	{
+		pControl->SetVisible(false);
+	}
+
     return true;
 }
 
