@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<PageAboutInfo >
+	<VerticalLayout name="AboutInfolayout" height="290">
+		<Label float="true" pos="22,18,0,0" width="100" height="16" text="安全密码" textcolor="#FF4E4E4E" font="1" align="left" mouse="false"/>
+		
+		<Combo name="ComboDemo1" gdiplus="true" float="true" pos="50,48,0,0" dropboxsize="100,500" width="24" height="24" normalimage="res/public/button/set_normal.png" hotimage="res/public/button/set_hover.png" gdiplus="true">
+			<ListLabelElement text="testA" gdiplus="true" selected="true" />  
+			<ListLabelElement text="testB" gdiplus="true"/> 
+			<ListLabelElement text="testC" gdiplus="true"/> 
+		</Combo>
+	</VerticalLayout>
+	
+</PageAboutInfo>
