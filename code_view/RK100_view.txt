@@ -1,0 +1,55 @@
+rkctool:
+	-> InitInstance
+		-> InitAppFrame(m_hInstance);  // AppFrame 初始化
+			// 程序实例与皮肤绘制管理挂钩
+			CPaintManagerUI::SetInstance(hInstance);
+			// 打印信息类
+			if (ILogger::GetSingletonPtr() == 0) new CLogger();
+			// 初始化xml文本管理器
+			if (IDocManager::GetSingletonPtr() == 0) new CDocManager();
+			// 初始化逻辑工厂
+			if (ILogicFactory::GetSingletonPtr() == 0) new CLogicFactory();
+			// 逻辑管理器
+			if (ILogicManager::GetSingletonPtr() == 0) new CLogicManager();
+			//控件工厂
+			if (IControlFactory::GetSingletonPtr() == 0) new CControlFactory();
+			// 初始化窗口管理器
+			if (IWindowManager::GetSingletonPtr() == 0) new CWindowManager();
+			
+			
+		-> new CSystem(_T("system.xml"));  // 系统初始化<设置资源路径和分辨率自适应，并注册logic>
+			// 初始化消息管理器, CRkcToolMsgManager
+			// 设置包括XML和图片等各种资源路径 SetResourcePath
+			// 是否自适应分辨率
+**			// 注册logics <CSearchEquipmentLogic\CLoginLogic\CToolFrameLogic>
+
+
+		-> CRkcComInterface->CreateSession();  // 创建cns session
+			// CRckLib::CreateSession( &m_pRkcSession );  // 创建url会话对象
+			// 获取接口指针: m_pSysCtrlIf
+				// 设定通知窗口句柄(获取内嵌的窗口句柄)
+				
+				
+		-> CSystem::GetSingletonPtr()->Launch();  // 创建主程序窗口
+			// 已存在，则显示窗口
+**			// 否则，从index.xml获取窗口文件，抓取信息创建窗口并显示   ，即 searchequipment 窗口创建并显示
+			// 进入消息循环
+			return TRUE;
+
+			
+主窗口消息响应：
+OnItemOperateBtnClicked
+	-> 调试按键
+		// login窗口<输入用户名即密码> OnLoginBtnClicked
+			//SocketConnect 
+				//SendLoginReq  // 发送登陆消息
+	
+			
+			
+			
+			
+
+备注：
+窗体类  https://www.cnblogs.com/xubin0523/archive/2012/06/01/2530910.html
+
+

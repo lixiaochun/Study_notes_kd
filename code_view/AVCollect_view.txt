@@ -1,0 +1,167 @@
+/*采集数据类
+******/
+CAudioCapture g_cAudioCapture;  //new CAudioCapture
+CDesktopCapture g_cVedioCapture;  //new CAudioCapture
+
+AVCollectTest->main()
+	CVideoCollect* ptVid = new CVideoCollect;
+	ptVid->SetVideoCallBack(VCALLBACK, ptVid);  //设置视频回调
+		CDesktopCapture::SetVedioCallBack(PAVCALLBACK pVedioCallBack, void* dwContext)
+		m_pVedioNetCB = pVedioCallBack;
+		m_dwContext = dwContext;
+
+	CAudioCollect* ptAud = new CAudioCollect;
+	ptAud->SetAudioCallBack(ACALLBACK, ptAud);  //设置音频回调
+
+	while(1)
+	{
+	//初始化音视频采集
+	ptVid->InitVideoCap();
+		g_cVedioCapture.InitAll(TRUE);
+		g_bIsInitVedio=true;
+	ptAud->InitAudCap();
+	
+	//开始抓屏
+	ptVid->StartVidCapture(true);
+		g_cVedioCapture.Create();  //g_bIsInitVedio == TRUE 需初始化完成
+	ptAud->StartAudCapture(true);
+
+	Sleep(20000);
+	
+	//停止抓屏
+	ptAud->StopAudCapture();
+	ptVid->StopVidCapture();
+	ptVid->Destroy();
+	ptAud->Destroy();
+	
+	Sleep(10000);
+	
+	//开始抓屏
+	ptVid->InitVideoCap();
+	ptAud->InitAudCap();
+
+	ptAud->StartAudCapture(true);
+	ptVid->StartVidCapture(true);
+
+	Sleep(20000);
+
+	//停止抓屏
+	ptAud->StopAudCapture();
+	ptVid->StopVidCapture();
+	ptVid->Destroy();
+	ptAud->Destroy();
+	
+	Sleep(200);
+	}
+	
+CDesktopCapture::InitAll(bool bjt)  // 一般 bjt == TRUE
+	FindOrCreateDirectory(strTmp);  //创建log文件夹
+	g_bIsGetDisplay = false;  ////避免重复获取屏幕
+	g_avFormatatContentx  //部分参数初始化
+		filename = "desktop"  //ret = init_input(&g_avFormatatContentx, "desktop")
+		priv_data = &g_gdiInfo  //g_gdiInfo.draw_mouse=true;
+		probe_score=ret;  //init_input 返回值 一般为0
+	g_bIsBMP = bjt;  //测试标志
+	GetAllDisplay();  //获取所有的屏幕数据
+		g_bIsGetDisplay = true;
+		EnumDisplayDevices(NULL, ndispIndex, &ddDisplay, 0);  //得到系统中显示设备的信息
+		g_tdispInfo.aryddDisplay[dspNum] = ddDisplay;  //dspNum == 0
+		//得到显示设备的一个图形模式设备
+		EnumDisplaySettings(ddDisplay.DeviceName, ENUM_CURRENT_SETTINGS, &dmDevMode)
+		g_tdispInfo.arydmDevMode[dspNum] = dmDevMode;
+	nScrWidth  = g_tdispInfo.arydmDevMode[0].dmPelsWidth; 
+	nScrHeight =  g_tdispInfo.arydmDevMode[0].dmPelsHeight;
+	Align4Bytes(&nScrWidth,&nScrHeight);  //判断是否能4字节对齐
+	m_tImageRGBtoYUV...  //结构参数设置
+	ImageUnitOpen(&g_pvPreProcHandle, &m_tImageRGBtoYUV, NULL, IMG_RGBTOYUV);  //图像处理初始化
+	ImageUnitSetParam(g_pvPreProcHandle, &m_tImageRGBtoYUV);  //改变指定图像处理类型参数设置
+	ImageUnitSetParam(g_pvPreProcHandle,&g_tPreResize);
+	
+	m_nRGBtoYUVWidth=nScrWidth;
+	m_nRGBtoYUVHeight=nScrHeight;
+	m_bIsEndChange= FALSE;
+	m_nLostCount=0;
+	m_bIsInit=true;
+	
+	InitConstData();  //初始化内存
+		struct gdigrab *gdigrab = (struct gdigrab *)g_avFormatatContentx.priv_data;
+		int file_size = gdigrab->header_size+Max_Screen_Width*3*Max_Screen_Heigth*1; //gdigrab->frame_size
+		int dwLen = Max_Screen_Width * Max_Screen_Heigth * 4 +
+		sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
+		g_pDesktopYuvBuf = new unsigned char[dwLen];  //申请YUV内存
+		g_pRetDesktopYuvBuf = new unsigned char[dwLen];  //申请回调YUV内存
+		int nVal = av_new_packet(&g_avPacket, file_size);  //新建一个 AVPacket
+
+
+CDesktopCapture::Create()  //初始化参数，即 g_avFormatatContentx->priv_data
+	gdigrab_read_header(&g_avFormatatContentx);  //初始化 gdigrab
+	    struct gdigrab *gdigrab1 = (gdigrab *)s1->priv_data;  //s1 == &g_avFormatatContentx
+		HWND hwnd=NULL;  //desktop默认 hwnd 为 NULL
+		HWND hh = GetDesktopWindow();
+	    HDC hd = GetDC(hh);
+		GetAllDisplay();  //获取所有的屏幕数据,g_tdispInfo
+		clip_rect = virtual_rect ={...}  //由 g_tdispInfo 赋值
+		
+		gdigrab1->width=clip_rect.right-clip_rect.left;  //priv_data 填充宽
+		gdigrab1->height=clip_rect.bottom-clip_rect.top;  //priv_data 填充高
+		
+		//Create a DIB and select it into the dest_hdc
+		source_hdc = GetDC(hwnd);  //得到窗口句柄的DC   
+		dest_hdc = CreateCompatibleDC(source_hdc);  //创建一个与指定设备兼容的 HDC
+		BITMAPINFO bmi = {...}  //赋值，作 BITMAPINFO 初始化  //BMP
+		HBITMAP hbmp = CreateDIBSection(dest_hdc, &bmi, DIB_RGB_COLORS, &buffer, NULL, 0);
+		SelectObject(dest_hdc, hbmp);  //select it into the dest_hdc
+		
+		GetObject(hbmp, sizeof(BITMAP), &bmp);  // Get info from the bitmap
+		gdigrab1 = {...}  //赋值 填充  //回填 gdigrab 结构，即 g_avFormatatContentx->priv_data
+		return 0;
+		
+	g_nTimeCapture = MIN_CAPTURE_TIMER/20  //add for lower cpu rate
+	m_bIsEndChange = true;  //判断调整分辨率结束的标志
+    g_bScreenChange= false;  //屏幕发生变化（分辨率变化）
+    m_bIsStart = true;      //判断截屏标志
+	CreateThread(NULL, 0, MsgThreadFun, this, CREATE_SUSPENDED, &m_dwThreadId);
+	CreateThread(NULL, 0, SendDesktopTimer, this, CREATE_SUSPENDED, NULL);
+	QueryPerformanceFrequency((LARGE_INTEGER *)&g_nCpuPerial);//询问系统一秒钟的频率
+-> MsgThreadFun  //消息线程
+	while(pMain->GetIsRunning())  //m_bIsStart = true,即截屏开始
+		GetMessage(&msg, 0, 0, 0)
+			if (msg.message == MESSAGE_POST_TO_UI)
+				pMain->CallbackToUI();  //回调给上层
+					(*m_pVedioNetCB)(g_pRetDesktopYuvBuf, m_nRGBtoYUVWidth*m_nRGBtoYUVHeight*1.5,
+					m_nRGBtoYUVWidth ,m_nRGBtoYUVHeight,m_dwContext,m_CallbackType);
+-> SendDesktopTimer
+	while (pMain->GetIsRunning())  //截屏开始
+		QueryPerformanceCounter((LARGE_INTEGER *)&t1);  //得到高精度计时器的值，不支持t1为0
+		int nDelay = ...  //增加了延时，检测采集帧率限制不高于控制帧率的120% 
+		int nRet = pMain->CaptureScreen();  //截屏成功上报
+			int nbmpLen = gdigrab_read_packet(&g_avFormatatContentx, &g_avPacket);  //截屏
+				struct gdigrab *gdigrab = (struct gdigrab *)s1->priv_data;  //s1 == &g_avFormatatContentx
+				int64_t curtime = GetTickCount();  //操作系统启动所经过的毫秒数
+				pkt->pts = curtime;
+				
+				BitBlt(dest_hdc, nLeft, 0,
+					clip_rect.right - clip_rect.left + nLeft,
+					clip_rect.bottom - clip_rect.top,
+					source_hdc,	clip_rect.left, clip_rect.top, SRCCOPY )  //**重点 ，获取
+					
+				BITMAPFILEHEADER bfh = {...}  //填充  //BMP文件头BITMAPFILEHEADER  
+				memcpy(pkt->data, &bfh, sizeof(bfh));  //往 AVPacket 拷贝 BITMAPFILEHEADER
+				//往 AVPacket 拷贝 BITMAPINFOHEADER  
+				memcpy(pkt->data + sizeof(bfh), &gdigrab->bmi.bmiHeader, sizeof(gdigrab->bmi.bmiHeader));
+				//往 AVPacket 拷贝像素数据
+				memcpy(pkt->data + gdigrab->header_size, gdigrab->buffer, gdigrab->frame_size);
+				return gdigrab->header_size + gdigrab->frame_size;
+			unsigned char* m_pDesktopDibBuf = g_avPacket.data + bfOffBits;  //bfOffBits == BITMAPFILEHEADER + BITMAPINFOHEADER
+			TImageRGBtoYUVInput  tPutIn.pu8SrcBAddr = m_pDesktopDibBuf;
+			TImageRGBtoYUVOutput tPutOut.pu8DstYAddr = g_pDesktopYuvBuf;
+			tPutOut.pu8DstUAddr = g_pDesktopYuvBuf + nScrWidth * nScrHeight;  //m_gdiInfo.width *m_gdiInfo.height;
+			tPutOut.pu8DstVAddr = g_pDesktopYuvBuf + nScrWidth * nScrHeight *5/4;  //m_gdiInfo.width *m_gdiInfo.height*5/4;
+		
+		
+		
+		
+		
+		
+		
+		

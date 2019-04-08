@@ -1,0 +1,111 @@
+main()
+	1)new CSystem( _T("system.xml") )  //CSystem 类创建
+		IniSystem()
+			1)//初始化...
+			2)//初始化窗口管理器
+			new CWindowManager( strValue );	//CWindowManager 类创建
+											//读取system.xml, 获取strValue ="skin\"
+				SetResourcePath("skin\")
+			3)//注册宏
+			ICommonOp::RegMacros();
+			4)//注册观察者
+			ICommonOp::RegObservers();
+	2)CSystem::Launch()
+		1)show窗口//strMainWindow	= _T("producetest")
+		IWindowManager::ShowWindow( CSystem::strMainWindow )
+			//读取 index.xml -> file, parent
+			pFrame = new CAppWindow( strFile.c_str() )  //strFile = main.xml , CAppWindow 类创建
+			//添加观察者
+			CWindowManager::AddNotifier( pFrame, strName );  // strName = strMainWindow
+				1)// DOCMNGR->GetDoc 获取 logic
+				2)pFrame->AddNotifier( pLogic )  // logic观察者可添加多个，以字符“|”隔开
+			//创建窗口
+			pFrame->Create( hParent, strName.c_str(), dwStyle, UI_WNDSTYLE_EX_FRAME );
+			Add( strName, pFrame );  //windows add
+			//注册观察者
+			REG_MSG_OBSERVER_APPWINDOW( pFrame );
+		2)show_ret == true
+		new CUdpSession();  //CUdpSession 类创建
+		CPaintManagerUI::MessageLoop();
+		CTftpOp::Close();
+
+		
+
+
+操作流程：
+1）选择Load/Test/Normal模式：
+CNormalLogic::OnBtnTest/CNormalLogic::OnBtnLoad  //两按钮
+	USERDATA->SetUIMode( emModeTest/emModeLoad )  //用户数据UI模式设置
+		NOTIFY(EV_USER_UI_MODE_CHANGE)  //发送UI模式改变消息给LoadLogic/TestLogic/MainLogic
+	
+->LoadLogic： 初始化所选择的页面
+->TestLogic:  
+->MainLogic:  
+	//显示/隐藏对应页面，并设置 UIState
+	1)ShowControl LoadPage, USERDATA->SetUIState( emUILoadEdit )
+	//遍历设备列表
+	2)CComboUI *pCombo = FindControl( strCbLoadDvc.c_str() )
+		创建 ListItem  // 读取 TestCfg.xml 配置文件，获取 Device 关键字数据
+	CListLabelElementUI *pItem = NULL  //创建List
+	//获取 testcfg.xml 下， Device 子节点
+	DocNode Node = DOCMNGR->GetNode( CMainLogic::strCfgFile, CMainLogic::strDvcTag )
+	3)InitST(emModeLoad)  // superterminal 子窗口显示
+	
+2）选择产品型号：
+MSG_ITEMSELECTD( "CbLoadDvc", OnDvcSelected )
+	USERDATA->SetDevice( strSelectedName )  // strSelectedName = combo获取
+		a. 上次设备名不为空，且与当前设备名一致：设备无变化
+		b. 上次设备名不为空，且与当前设备名不一致：删除上一次
+			a) 当前设备名为空：NOTIFY( EV_USER_DEVICE_CHANGE )
+			b) 创建当前设备， NOTIFY( EV_USER_DEVICE_CHANGE )
+				--> 3）创建设备
+		c. 上次设备名为空，且当前设备名为空：当前设备无效
+
+3）创建设备
+IDevice* CDeviceFactory::CreateDevice( const String &strName )
+	//创建板卡
+	1)IBoard* CBoardFactory::CreateBoard( const String &strName )
+		//由板卡文件获取并设置属性
+		CBoardFactory::GetBrdAttribute( IBoard *pBoard, const String &strBrdFile )
+		return pBoard->Clone();
+	2)pDevice = pDevice->Clone();
+	//给返回的设备绑定网络模块
+	3)CDeviceFactory::BindNetModule( IDevice* pDevice )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
