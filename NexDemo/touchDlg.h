@@ -11,6 +11,12 @@
 #include "logo.h"
 #include "ppt.h"
 
+typedef enum em_Send_Data_Mode
+{
+    em_To_HID = 0x01,    //发送码流到设备
+    em_To_Server,        //发送码流到服务器
+}EmSendDataMode;
+
 // CtouchDlg 对话框
 class CtouchDlg : public CDialogEx
 {
@@ -54,9 +60,6 @@ protected:
 
 	afx_msg LRESULT OnPptPlay( WPARAM wParam, LPARAM lParam );      //ppt消息处理
 	afx_msg LRESULT OnPowerStatus( WPARAM wParam, LPARAM lParam );      //ppt消息处理
-
-    //避免未关闭的touch程序，下次开机自启（前提：Win10设置了快速启动功能）
-    afx_msg void OnRegDeleteValue();
 	
 	DECLARE_MESSAGE_MAP()
 
@@ -99,6 +102,7 @@ public:
 
 	void SetLogo();    //设置台标
 	void GetResolution(int &nWidth, int &nHeight);//获取要进行编码的分辨率
+    void CheckResolution();  //检测当前系统分辨率是否超出限制分辨率（3840*2160）
 
 	//默认音频设备设置
 	HRESULT SetDefaultAudioPlaybackDevice(LPCWSTR devID);
@@ -114,6 +118,8 @@ public:
 
 	bool GetSysUserName( CString &strName );  //获取操作系统用户名
 
+    CString GetIniFilePath();  //ini文件路径
+
 	//ppt函数
 	void SendPptCmdToHid( EnumPptStatus emStatus );//发送ppt消息到hid
 	void SolvePptNty( PPT_STATUS emPptStatus );
@@ -123,6 +129,8 @@ public:
 
 	//设置编码协商参数
 	void SetConsultVideoParam(u8 byVideoType);
+    //是否编码协商
+    bool NeedCodeConsult();
 
 private:
 	void InitUI();
@@ -164,15 +172,20 @@ public:
 
 	CString m_strSysUserName; //系统用户名
 
-	int m_nStartPptCount;    //发送ppt播放命令次数
-	int m_nStopPptCount;     //发送ppt未播放命令次数
+	int m_nStartPptCount;      //发送ppt播放命令次数
+	int m_nStopPptCount;       //发送ppt未播放命令次数
+    int m_nSendBusinessCount;  //发送业务命令次数
+    int m_nThreadExitCount;    //音视频发送线程退出次数
 
 	bool m_bCapOverEncode;   //判断采集分辨率是否大于编码分辨率
+	bool m_bStretch;         //判断是否不等比拉伸，即采集分辨率比例大于等于1.5时
+    bool m_bOverResLimit;    //判断是否超出限制分辨率
 
 	bool m_bBusinessStaus;   //是否需要判断业务状态
-	int m_nSendBusinessCount;//发送业务命令次数
 
-	NET_STATUS m_bCurConnetStatus;//当前连接状态
+	NET_STATUS m_bCurConnetStatus;    //当前连接状态
+    EmQKPidType m_emQKPidType;        //当前投屏器类型
+    EmSendDataMode m_emSendDateMode;  //发送码流方式
 
 protected:
 	HICON m_hIcon;

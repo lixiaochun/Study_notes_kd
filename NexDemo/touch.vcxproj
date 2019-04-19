@@ -88,7 +88,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>..\..\CommInterfaceDll\prj_win32\release;..\..\..\..\10-common\lib\releaselib\release\win32;..\..\..\..\10-common\lib\locallib\release\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <IgnoreSpecificDefaultLibraries>libcmt.lib;libcmtd.lib</IgnoreSpecificDefaultLibraries>
+      <IgnoreSpecificDefaultLibraries>libcmt.lib</IgnoreSpecificDefaultLibraries>
       <UACExecutionLevel>AsInvoker</UACExecutionLevel>
     </Link>
     <Midl>
@@ -109,20 +109,26 @@
     <None Include="res\bitmap.bmp" />
     <None Include="res\bitmap1.bmp" />
     <None Include="res\btn_banner_stop.png" />
+    <None Include="res\btn_hover.png" />
+    <None Include="res\btn_normal.png" />
     <None Include="res\btn_ok_normal.png" />
     <None Include="res\btn_ok_press.png" />
     <None Include="res\btn_poweroff_cal_normal.png" />
     <None Include="res\btn_poweroff_cal_press.png" />
     <None Include="res\btn_poweroff_ok_normal.png" />
     <None Include="res\btn_poweroff_ok_press.png" />
+    <None Include="res\btn_pushed.png" />
     <None Include="res\close.png" />
     <None Include="res\close_hover.png" />
     <None Include="res\close_sel.png" />
     <None Include="res\connect.png" />
     <None Include="res\connecting.gif" />
+    <None Include="res\connect_arrow.png" />
     <None Include="res\connect_bk.png" />
+    <None Include="res\connect_device.png" />
     <None Include="res\connect_fail.png" />
     <None Include="res\connect_success.gif" />
+    <None Include="res\connect_usb.png" />
     <None Include="res\info.png" />
     <None Include="res\info_sel.png" />
     <None Include="res\log.png" />
@@ -161,11 +167,14 @@
     <ClInclude Include="..\include\commonstruct.h" />
     <ClInclude Include="..\include\datalistclass.h" />
     <ClInclude Include="..\include\Encoder.h" />
+    <ClInclude Include="..\include\language.h" />
     <ClInclude Include="..\include\logo.h" />
     <ClInclude Include="..\include\MainDlg.h" />
     <ClInclude Include="..\include\MenuEx.h" />
+    <ClInclude Include="..\include\msgrecver.h" />
     <ClInclude Include="..\include\ppt.h" />
     <ClInclude Include="..\include\semaphoreclass.h" />
+    <ClInclude Include="..\include\socketmanager.h" />
     <ClInclude Include="..\include\templateClass.h" />
     <ClInclude Include="..\include\uibase\basedlg.h" />
     <ClInclude Include="..\include\uibase\msgdispatch.h" />
@@ -195,8 +204,10 @@
     <ClCompile Include="..\source\logo.cpp" />
     <ClCompile Include="..\source\MainDlg.cpp" />
     <ClCompile Include="..\source\MenuEx.cpp" />
+    <ClCompile Include="..\source\msgrecver.cpp" />
     <ClCompile Include="..\source\ppt.cpp" />
     <ClCompile Include="..\source\semaphoreclass.cpp" />
+    <ClCompile Include="..\source\socketmanager.cpp" />
     <ClCompile Include="..\source\uibase\basedlg.cpp" />
     <ClCompile Include="..\source\uibase\msgdispatch.cpp" />
     <ClCompile Include="..\source\uibase\transparentbasedlg.cpp" />
