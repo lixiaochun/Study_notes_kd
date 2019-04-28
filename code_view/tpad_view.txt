@@ -1,0 +1,141 @@
+
+
+important:
+(1)m_bDual 需置true, 显示双流  -->
+(2)点击收看显示按钮 OnBtnWatchDual, 才有双流窗口显示  -->
+
+(1)
+CTpadConfCtrl::OnRecvDualNty(const CMessage &cMsg)
+	PostEvent( UI_CNS_RECV_DUAL_NOTIFY, m_bRecvDual, 0 );
+	
+UI_CNS_RECV_DUAL_NOTIFY  //双流状态通知， 即 m_bDual 置 true
+1)UI_CNS_RECV_DUAL_NOTIFY,CMainMenuLogic::OnDualRecvStateNotify
+	m_bDual = (BOOL32)wParam;  //双流通知标志位
+	if(ComInterface->IsManagerUser())return true;  //若为管理员，默认不自动显示双流
+	if (m_bDual)  //UI_CNS_DUAL_STATE_NOTIFY  //标记位， 双流状态通知， 为true则显示双流
+		->::ShowWindow( hWnd, SW_HIDE );  //hWnd 为cnc窗口句柄  //若cnc显示 隐藏掉
+		ComInterface->SetReceiveDual( TRUE );  //接收双流标记位置true， 设置正在接收演示，防止连续点击显示观看
+		NOTIFY_MSG( WM_CMS_SHOWVIDEO, (WPARAM)TRUE , 0 );  //显示视频解码 通知 //wParam=1 最大化显示
+	return NO_ERROR;
+2)UI_CNS_RECV_DUAL_NOTIFY,CVideoLogic::OnDualRecvStateNotify  //只考虑停止双流时的video窗口响应
+	BOOL32 bDual = (BOOL32)wParam;
+	if ( !bDual )  //关闭双流，
+		TNotifyUI msg;
+		OnHideVideo(msg);  //停止解码，隐藏video窗口
+			ComInterface->SetReceiveDual( FALSE );  //接收双流标记位置false
+			if ( !IsWindowVisible(g_strVideoDlg.c_str()) )return;  //video窗口不可见，return
+			m_cDecoder.StopPlay();  //停止解码
+			m_bDecod = FALSE;
+			WINDOW_MGR_PTR->ShowWindow( g_strVideoDlg.c_str(), false );  //video窗口隐藏
+		m_bRecvStream = FALSE;
+	return S_OK;
+
+(2)//通知双流后，手动收看显示
+CMainMenuLogic::OnBtnWatchDual  //点击收看演示按钮
+	if( m_bDual )  //双流通知标志位
+		if ( !ComInterface->IsReceiveDual() )  //判断当前状态，防止连续点击显示观看
+			ComInterface->SetReceiveDual( TRUE );
+			NOTIFY_MSG( WM_CMS_SHOWVIDEO, (WPARAM)TRUE , 0 );
+	else
+		ShowMessageBox(_T("当前无演示"));
+	return true;
+	
+通知：1)WM_CMS_SHOWVIDEO,CVideoLogic::OnShowVideo  //双流显示播放
+	if ( m_bDecod && m_bRecvStream )  //m_bDecod&m_bRecvStream 由 UI_CNSINS_START_DUALCODESTREAM_RSP 开启双码流回复置true
+		if (WINDOW_MGR_PTR->IsWindowVisible(g_strVideoDlg.c_str()))
+			HideDualView();  //video窗口可见，则隐藏
+				WINDOW_MGR_PTR->ShowWindow(g_strVideoDlg.c_str(), false);
+				m_cDecoder.StopPlay();  //停止播放
+				m_bDecod = FALSE;  //解码标记位， false
+				ComInterface->SetReceiveDual( FALSE );
+		else
+			RestoreVedioWnd();  //video窗口不可见， 重置配置并显示
+				m_cDecoder.SetWnd( pVideo->GetHWND() );  //设置解码video窗口
+				m_cDecoder.AskKeyFrame( TRUE );  //切换大小时请求关键帧，防止白屏
+				WINDOW_MGR_PTR->ShowWindow(g_strVideoDlg.c_str());  //显示窗口
+	elseif (!m_bDecod && m_bRecvStream)  //非解码状态
+		m_cDecoder.StartPlay(); 
+		RestoreVedioWnd( );
+		m_bDecod = FALSE;
+	else
+		PlayDual();
+			InitParam();  //初始化解码参数及配置
+			//请求码流， 发送 ev_TppAddDualRcvAddr_Cmd(增加双流接受地址)， 含有ip/port
+			ComInterface->StartDualCodeStream( m_tVedioIpTransAddr, m_tAudioIpTransAddr );
+			m_bIsClkBtn = TRUE;
+	return S_OK;
+
+	
+
+======== < MsgTrans >========
+
+// XXXlib:include 中添加 msgtransinstance.h, source 中实现 msgtransinstance.cpp
+1)定义 CMsgTransInstance:  //含消息缓冲区 CMsgQueue, 及其保护关键区 CRITICAL_SECTION
+//CMsgQueue
+class CMsgQueue
+{
+public:
+    CMsgQueue();
+    ~CMsgQueue();
+    // 将一条消息压入队列中
+    void PushMsg(CMessage* const pMsg);
+    // 从队列中取出一条消息，并添加到目标队列里
+    void PopMsg(CMsgQueue &cOutQue);
+    // 从队列中弹出一条消息
+    void Pop() 
+    { 
+        CMessage *pMsg = &m_queMsg.front(); 
+        delete []pMsg->content;
+        m_queMsg.pop(); 
+    }
+    // 队列是否为空
+    BOOL IsEmpty();
+    // 清空队列
+    void Clear();
+    // 得到队列最前面元素
+    CMessage& Front() { return m_queMsg.front();}
+    // 得到队列的大小
+    s32 Size() { return m_queMsg.size(); }
+private:
+    queue<CMessage> m_queMsg;
+};
+//CMsgTransInstance
+class CMsgTransInstance : public CInstance
+{
+public:
+	// 重点 ** 消息处理函数  //剩下的均为 CMessage 消息队列处理
+	virtual void InstanceEntry(CMessage *const pMsg);  //注意 ** 有防止多个osp消息的特殊队列处理，避免消息的遗漏
+	// 提取缓冲的消息队列(线程安全)
+    void PopAllMsg(CMsgQueue &cMsgQue);
+    // 清空消息队列
+    void ClearQueue();
+
+    static CMsgTransInstance* GetMsgTransInst() { return s_pMsgTransInst; }
+protected:
+	// 消息缓冲队列及其保护关键区
+	CMsgQueue       m_cMsgQue;
+	CRITICAL_SECTION   m_csQueueOspMsg;  //微软SDK中 winbase.h 多线程临界资源的互斥
+
+private:
+	static CMsgTransInstance *s_pMsgTransInst;  //本实例指针（非单实例） 由 GetMsgTransInst 获取
+}
+
+2)定义 driver
+//CMsgTransInstance 实现消息转发，调用 CMsgTransDriver(msgtransdriver.h)  //同目录文件
+class CMsgTransDriver  //单实例 MsgTransDriver 宏进行指针调用
+{
+	...
+	//基本功能概括
+	1)功能函数：
+	public:void RegTransNode( TNodeInfo tNodeInfo );  //
+	2)基本元素:
+	private:static CMsgTransDriver* m_pTransDriver;   //单实例自身指针 由宏 MsgTransDriver 可获取
+	private:vector<TNodeInfo> m_vctNodeList;          //TNodeInfo 为 dwNodeId&dwInstId
+}
+#define MsgTransDriver  CMsgTransDriver::GetMsgDriverPtr()
+
+
+
+
+
+

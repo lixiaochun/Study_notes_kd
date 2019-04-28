@@ -33,44 +33,143 @@ main()
 
 
 操作流程：
-1）选择Load/Test/Normal模式：
+1)选择Load/Test/Normal模式：
 CNormalLogic::OnBtnTest/CNormalLogic::OnBtnLoad  //两按钮
 	USERDATA->SetUIMode( emModeTest/emModeLoad )  //用户数据UI模式设置
-		NOTIFY(EV_USER_UI_MODE_CHANGE)  //发送UI模式改变消息给LoadLogic/TestLogic/MainLogic
+		NOTIFY(EV_USER_UI_MODE_CHANGE)  //发送UI模式改变消息给 LoadLogic&TestLogic&MainLogic
 	
 ->LoadLogic： 初始化所选择的页面
 ->TestLogic:  
-->MainLogic:  
-	//显示/隐藏对应页面，并设置 UIState
-	1)ShowControl LoadPage, USERDATA->SetUIState( emUILoadEdit )
-	//遍历设备列表
-	2)CComboUI *pCombo = FindControl( strCbLoadDvc.c_str() )
-		创建 ListItem  // 读取 TestCfg.xml 配置文件，获取 Device 关键字数据
-	CListLabelElementUI *pItem = NULL  //创建List
+	if ( USERDATA->GetUIMode() == emModeTest )  //测试UI模式
+	{
+		m_pCaseList->RemoveAll();
+		USERDATA->SetUIState(emUITestPre);
+			OnUIPre();  //UI 控件状态初始化
+	}
+->MainLogic::OnUIModeChange(...)
+	InitTestPage()/InitLoadPage()
+	//显示/隐藏对应页面
+	1)ShowControl LoadPage/TestPage/NormalPage 
+	//设置 UIState
+	2)USERDATA->SetUIState( emUILoadEdit )  //只有响应 Load 的情况
+		NOTIFY( EV_USER_UI_STATE_CHANGE );  //发送UIState 改变消息
+		-> CLoadLogic::OnUIStateChange  //进入编辑模式
+			ShowControl( true, m_pPaintMngr, "BtnSwitch")  //显示切换按键
+			EnableControl( true, m_pPaintMngr, strBtnChangeEdit )  //使能“修改”按键
+	//遍历设备列表，创建 CombItem List
+	3)CComboUI *pCombo = FindControl( strCbLoadDvc.c_str() )
+	//创建 ListItem  // 读取 TestCfg.xml 配置文件，获取 Device 关键字数据
+	CListLabelElementUI *pItem = NULL
 	//获取 testcfg.xml 下， Device 子节点
 	DocNode Node = DOCMNGR->GetNode( CMainLogic::strCfgFile, CMainLogic::strDvcTag )
-	3)InitST(emModeLoad)  // superterminal 子窗口显示
+	pItem = ...  //获取 CombItem
+	pItem->SetText( Node.GetName() );  //获取Device 子节点名称
+	pCombo->Add(pItem);  //CombItem 添加
+	//其它初始化
+	4)USERDATA->SetDevice("");  //无效提示
+	USERDATA->SetDispState("");  //无显示状态
+		NOTIFY( EV_USER_STATE_STR_UPATE );
+	pCombo->SelectItem(-1);
+	InitST(emModeTest/emModeLoad)  // superterminal 子窗口显示，与入参无关
 	
-2）选择产品型号：
+2-1)选择产品型号(手动)：
 MSG_ITEMSELECTD( "CbLoadDvc", OnDvcSelected )
 	USERDATA->SetDevice( strSelectedName )  // strSelectedName = combo获取
 		a. 上次设备名不为空，且与当前设备名一致：设备无变化
 		b. 上次设备名不为空，且与当前设备名不一致：删除上一次
 			a) 当前设备名为空：NOTIFY( EV_USER_DEVICE_CHANGE )
 			b) 创建当前设备， NOTIFY( EV_USER_DEVICE_CHANGE )
-				--> 3）创建设备
+				--> 3-1)创建设备
+				--> 4-1)创建设备成功 ， NOTIFY( EV_USER_DEVICE_CHANGE )
 		c. 上次设备名为空，且当前设备名为空：当前设备无效
 
-3）创建设备
+3-1)创建设备
 IDevice* CDeviceFactory::CreateDevice( const String &strName )
+	pDevice = Find( strName );
+	pDevice = new CDevice();   //pDevice 为空时创建
+	pDevice->SetName( strName );
+	
+	//获取Device/strName 节点 board 属性值，为 strValue
+	DOCMNGR->GetDoc( CDeviceFactory::strCfgFile, "board", strValue, CDeviceFactory::strDvcPath + strName)
+	//stringstream strBrdName( strValue )  //以"|"为分隔符，获取所有板卡名，至 strSingleBrd
+	while( getline( strBrdName, strSingleBrd, CDeviceFactory::chSeparater ) )
 	//创建板卡
-	1)IBoard* CBoardFactory::CreateBoard( const String &strName )
-		//由板卡文件获取并设置属性
-		CBoardFactory::GetBrdAttribute( IBoard *pBoard, const String &strBrdFile )
+	1)IBoard* CBoardFactory::CreateBoard( strSingleBrd )  //strName == strSingleBrd
+		//获取 strBrdPath == "Board/"节点下, strName 对应下的 value ->strBrdFile
+		DOCMNGR->GetDoc( CBoardFactory::strCfgFile, strName, strBrdFile, CBoardFactory::strBrdPath );	//获取Board文件名
+		pBoard = new CBoard();  //pBoard Find为空时创建
+		//由板卡文件获取并设置属性  //board info & RegMsg
+		CBoardFactory::GetBrdAttribute( pBoard, strBrdFile )
+		Add( strName, pBoard );  //添加板卡
 		return pBoard->Clone();
+	Add( strName, pDevice );  //添加设备
 	2)pDevice = pDevice->Clone();
-	//给返回的设备绑定网络模块
+	//给返回的设备绑定网络模块  //UIMode == emModeTest 时
 	3)CDeviceFactory::BindNetModule( IDevice* pDevice )
+	
+	4)return pDevice;
+
+4-1)创建设备成功
+CLoadLogic/CTestLogic::OnDvcChange
+	if(USERDATA->GetUIMode() != emModeLoad/emModeTest ) return false;
+	//刷新PID和HID
+	ICommonOp::SetControlText( chTemp, m_pPaintMngr, strLabelPid );  //chTemp为字符串
+	ICommonOp::SetControlText( chTemp, m_pPaintMngr, strLabelHid );  //
+	return true;
+
+5-1)点击保存
+	CheckEditLegal( strErrMsg )  //检查输入Edit的正确性，错误信息返回给 strErrMsg
+	正确：
+	SaveEditData();					//保存
+	RefreshCtrlState(false);		//控件状态
+	RefreshEditData();				//刷新
+	delete m_pPreviousDvc;          //删除前一个设备
+	m_pPreviousDvc = NULL;
+	CheckUIState();                 //检查UI状态
+	CEditUI *pEditSn = (CEditUI*)ICommonOp::FindControl( m_pPaintMngr, strEditSn );
+	pEditSn->SetFocus();			//设置Sn编辑框为焦点
+	错误：
+	ICommonOp::ShowNotifyDlg( strErrMsg.c_str() );
+
+6-1)输入Sn号，直至长度大于10
+	pSerial->SetReadOnly(true);
+	CheckUIState();
+		//如果左边"修改"按键不可见或序列号编辑框不是只读，当前是编辑模式
+		//在"修改","取消","保存"按键和序列号输入后检查
+		if ( !pBtnChange->IsVisible() || !pEditSn->IsReadOnly() )
+			USERDATA->SetUIState( emUILoadEdit );  //编辑状态
+		else
+		{
+			//保存序列号
+			IDevice *pDvc = USERDATA->GetDevice();
+			IBoard *pBoard = pDvc->GetBoard(0);
+			pBoard->SetSerialNo( ICommonOp::GetControlText(m_pPaintMngr, strEditSn).c_str() );  //设置序列号
+			USERDATA->SetUIState( emUILoadNormal );  //切换为Normal状态
+				NOTIFY( EV_USER_UI_STATE_CHANGE );  //发送UIState 改变消息
+				-> CLoadLogic::OnUIStateChange(...)
+					USERDATA->SetDispState("等待设备连接...");  //显示状态信息
+					ICommonOp::ShowControl( true, m_pPaintMngr, "BtnSwitch" );  //显示切换开关
+					LOGEVENT("准备就绪\n");
+		}
+
+7-1)设备连接
+
+
+2-2)选择产品型号(手动)：
+	//创建设备 //设置勾选框
+3-2)开始测试(手动):
+	//UI状态， emUITesting
+	USERDATA->SetUIState(emUITesting);  //UI状态改变
+	//取测试项，直到设备没有测试项
+	if ( !pDvc->SetTestCase(emTestNext) )
+
+
+
+
+	//获取板卡测试用例
+	CBoardFactory::GetBrdTestCase
+	//从testcfg.xml文件中，找到测试用例文件，获取测试用例
+	CTestCaseFactory::CreateTestCase
 
 
 
@@ -78,19 +177,9 @@ IDevice* CDeviceFactory::CreateDevice( const String &strName )
 
 
 
+CBoard::RegBrd  
 
-
-
-
-
-
-
-
-
-
-
-
-
+http://172.16.6.121/svn/TPS/branches/20181024_TPS_V5R2B1SP4_FIX/Professional_VOB/
 
 
 

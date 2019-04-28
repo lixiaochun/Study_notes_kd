@@ -53,3 +53,47 @@ OnItemOperateBtnClicked
 窗体类  https://www.cnblogs.com/xubin0523/archive/2012/06/01/2530910.html
 
 
+
+
+
+======== < DispMsg > ========
+// CKdvDispEvent  基类，主要用于分发消息
+
+// CKdvDispEvent 消息分发表注册  //TYPE_CMESSAGE 类型osp消息响应  //还可发送 TYPE_TPMSG 类型的osp消息
+class CRkcMsgDriver
+{
+public:
+    CRkcMsgDriver()
+	{	MappingEventName();  // 构造事件名称表  //RKCMAPPING_HELPER printctl 用于打印
+		s_pMsgDriver = this;};
+    ~CRkcMsgDriver(){};
+	
+	// 得到发送消息的指针
+    COspMsg* GetOspMsgPtr(BOOL32 bClear = TRUE);            // 获取 &m_tOspMsg
+    // 注册一个处理消息的类的指针
+    void RegHandler(CKdvDispEvent* const pDispEvnet);		// m_vpDispEvent.push_back(pDispEvnet);
+    // 发送osp消息
+    virtual u16 PostMsg(u32 dwType = TYPE_CMESSAGE);		// 发送 TYPE_TPMSG 消息
+	{
+		if (TYPE_TPMSG == dwType) 
+			wRet = OspPost(MAKEIID(AID_RKC_APP,0), m_tOspMsg.GetEvent(),
+			m_tOspMsg.GetBody(),m_tOspMsg.GetBodyLen());
+	}
+
+public:
+	// 响应 WM_OSPMESSAGECOMING 消息
+	void OnOspMessageComing(WPARAM wParam, LPARAM lParam);
+
+public:
+    static CRkcMsgDriver *s_pMsgDriver;     // 指向自身的类指针
+protected:
+    COspMsg m_tOspMsg;                      // osp传送消息
+private:
+    void MappingEventName();                // 消息映射，用于打印
+    vector<CKdvDispEvent*> m_vpDispEvent;   // 消息分发表
+}
+
+//CRkcSession 定义消会话子类  //含osp初始化
+class CRkcSession : public CRkcSessionCtrlIF,  //class CRkcSessionCtrlIF : public CKdvDispEvent //纯虚函数接口
+                    public CRkcMsgDriver       //自定义
+
