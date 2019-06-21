@@ -1,0 +1,280 @@
+Index: include/confctrllogic.h
+===================================================================
+--- include/confctrllogic.h	(°æ±¾ 34922)
++++ include/confctrllogic.h	(¹¤×÷¸±±¾)
+@@ -16,6 +16,7 @@
+ 	emTabID_ConfDual,
+ 	emTabID_MixMotive,
+ 	emTabID_PIP,
++    emTabID_SeatMotive,
+ 	emTabID_TvWall,
+ };
+ 
+@@ -95,6 +96,11 @@
+ 	*  @return 
+ 	*/	
+ 	bool OnTabPIP(TNotifyUI& msg);
++    /** ×øÏ¯¼¤ÀøTab
++	*  @param[in] 
++	*  @return 
++	*/	
++	bool OnTabSeatMotive(TNotifyUI& msg);
+ 	/** µçÊÓÇ½Tab
+ 	*  @param[in] 
+ 	*  @return 
+Index: include/UIDataMgr.h
+===================================================================
+--- include/UIDataMgr.h	(°æ±¾ 34922)
++++ include/UIDataMgr.h	(¹¤×÷¸±±¾)
+@@ -151,7 +151,11 @@
+ 	* @return ³É¹¦·µ»ØTRUE,Ê§°Ü·µ»ØFALSE
+ 	* @remarks 
+ 	*/
++#if 0
+     EMLocalCnsState GetLocalCnsState( ){ return m_emLocalCnsState ;}
++#else
++    EMLocalCnsState GetLocalCnsState( ){ return emLocalCnsConnected ;}
++#endif
+ 
+ 
+     /**
+Index: prj_win32/skin/confctrl.xml
+===================================================================
+--- prj_win32/skin/confctrl.xml	(°æ±¾ 34922)
++++ prj_win32/skin/confctrl.xml	(¹¤×÷¸±±¾)
+@@ -25,8 +25,9 @@
+         <Option name="confpoll" text="ä¼šè®®è½®è¯¢" padding="2,23,0,0" width="244" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0" selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />
+         <Option name="audmix" text="ä¼šè®®è®¨è®º" padding="2,23,0,0" width="244" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0" selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />
+         <Option name="confdual" text="åŒæµ" padding="2,23,0,0" width="244" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0" selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />
+-        <Option name="mixmotive" text="åå¸­æ¿€åŠ±" padding="2,23,0,0" width="244" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0"  selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />
++        <Option name="mixmotive" text="è¯­éŸ³æ¿€åŠ±" padding="2,23,0,0" width="244" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0"  selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />
+         <Option name="pip" text="ç”»ä¸­ç”»" padding="2,23,0,0" width="244" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0"  selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />
++		<Option name="seatmotive" text="åå¸­æ¿€åŠ±" padding="2,23,0,0" width="244" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0"  selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />
+ 		<Option name="tvwall" text="ç”µè§†å¢™" padding="2,23,0,0" width="231" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0"  selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />		
+         <Option name="FeccCam" text="æ‘„åƒæœºè¿œæ‘‡" padding="2,23,0,0" width="244" height="70" textcolor="#FF92A7C2" selectedtextcolor="#FFFFFFFF" font="0"  selectedimage="res/public/tabbkg_down.png" group="confcontrol" align="center" />
+ 	</HorizontalLayout>
+@@ -83,13 +84,24 @@
+ 		<Label text="åˆ›å»ºå¿«æ·æ“ä½œ" float="true" pos="751,864,0,0" width="293" height="66" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="0" align="left" textpadding="0,15,0,0"/>
+ 		<CheckBox name="CheckDualShotCut" float="true" pos="1044,864,0,0" width="124" height="66" normalimage="res/public/switchbtn_off.png" selectedimage="res/public/switchbtn_on.png" />	
+ 	  </VerticalLayout>
+-	  <!--åå¸­æ¿€åŠ± -->
++	  <!--è¯­éŸ³æ¿€åŠ± -->
+ 	  <VerticalLayout name="voicearouselayout">
+-		<!--Label name="" float="true" pos="748,170,0,0" width="424" height="424" bkimage="res/confctrl/imgMixMotive.png"/>	
++		<Label name="" float="true" pos="748,170,0,0" width="424" height="424" bkimage="res/confctrl/imgMixMotive.png"/>	
+ 		<Label text="å¼€å¯è¯­éŸ³æ¿€åŠ±" float="true" pos="751,765,0,0" width="293" height="66" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="0" align="left" textpadding="0,15,0,0"/>
+ 		<CheckBox name="CheckVoiceArouse" float="true" pos="1044,765,0,0" width="124" height="66" normalimage="res/public/switchbtn_off.png" selectedimage="res/public/switchbtn_on.png" />
+ 		<Label text="åˆ›å»ºå¿«æ·æ“ä½œ" float="true" pos="751,864,0,0" width="293" height="66" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="0" align="left" textpadding="0,15,0,0"/>
+-		<CheckBox name="CheckVSShortCut" float="true" pos="1044,864,0,0" width="124" height="66" normalimage="res/public/switchbtn_off.png" selectedimage="res/public/switchbtn_on.png" /-->
++		<CheckBox name="CheckVSShortCut" float="true" pos="1044,864,0,0" width="124" height="66" normalimage="res/public/switchbtn_off.png" selectedimage="res/public/switchbtn_on.png" />
++	  </VerticalLayout>
++	  <!--ç”»ä¸­ç”» -->
++	  <VerticalLayout name="piplayout">  		
++		<Label name="" float="true" pos="748,170,0,0" width="424" height="424" bkimage="res/confctrl/imgPIP.png"/>	
++		<Label text="å¼€å¯ç”»ä¸­ç”»" float="true" pos="751,765,0,0" width="293" height="66" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="0" align="left" textpadding="0,15,0,0"/>
++		<CheckBox name="CheckPIP" float="true" pos="1044,765,0,0" width="124" height="66" normalimage="res/public/switchbtn_off.png" selectedimage="res/public/switchbtn_on.png" />
++		<Label text="åˆ›å»ºå¿«æ·æ“ä½œ" float="true" pos="751,864,0,0" width="293" height="66" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="0" align="left" textpadding="0,15,0,0"/>
++		<CheckBox name="CheckPIPShortCut" float="true" pos="1044,864,0,0" width="124" height="66" normalimage="res/public/switchbtn_off.png" selectedimage="res/public/switchbtn_on.png" />	
++	  </VerticalLayout>
++	  <!--åå¸­æ¿€åŠ± -->
++	  <VerticalLayout name="seatarouselayout">
+ 		<HorizontalLayout>
+ 			<Label name="" float="true" pos="106,50,0,0" width="555" height="376" bkimage="res/confctrl/imgSeatExcitation.png"/>
+ 			<Label name="" float="true" pos="683,50,0,0" width="555" height="376" bkimage="res/confctrl/imgSeatExcitation.png"/>
+@@ -142,14 +154,6 @@
+ 			<btnSpeakSeat3 normalimage="res/confctrl/speakseat_normal.png" enabled="false"/> 
+ 		</Case>	
+ 	  </VerticalLayout>
+-	  <!--ç”»ä¸­ç”» -->
+-	  <VerticalLayout name="piplayout">  		
+-		<Label name="" float="true" pos="748,170,0,0" width="424" height="424" bkimage="res/confctrl/imgPIP.png"/>	
+-		<Label text="å¼€å¯ç”»ä¸­ç”»" float="true" pos="751,765,0,0" width="293" height="66" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="0" align="left" textpadding="0,15,0,0"/>
+-		<CheckBox name="CheckPIP" float="true" pos="1044,765,0,0" width="124" height="66" normalimage="res/public/switchbtn_off.png" selectedimage="res/public/switchbtn_on.png" />
+-		<Label text="åˆ›å»ºå¿«æ·æ“ä½œ" float="true" pos="751,864,0,0" width="293" height="66" textcolor="#FFFFFFFF" disabledtextcolor="#FFA7A6AA" font="0" align="left" textpadding="0,15,0,0"/>
+-		<CheckBox name="CheckPIPShortCut" float="true" pos="1044,864,0,0" width="124" height="66" normalimage="res/public/switchbtn_off.png" selectedimage="res/public/switchbtn_on.png" />	
+-	  </VerticalLayout>
+ 	  <!--ç”µè§†å¢™-->
+ 	  <VerticalLayout name="tvwalllayout">
+       <ChildLayout xmlfile="tvwall.xml" name="PageTvWall"/>
+@@ -166,6 +170,7 @@
+ 			<btnGoRight visible="true"/>
+ 			<mixmotive visible="false"/>
+ 			<pip visible="false"/>
++			<seatmotive visible="false"/>
+ 			<tvwall visible="false"/>
+ 			
+ 			<FeccCam visible="false"/>
+@@ -182,6 +187,7 @@
+ 			<btnGoRight visible="true"/>
+ 			<mixmotive visible="false"/>
+ 			<pip visible="false"/>
++			<seatmotive visible="false"/>
+ 			<tvwall visible="false"/>
+ 			<confcns visible="true"/>
+ 			<confroll visible="true"/>
+@@ -194,6 +200,7 @@
+ 			<btnGoRight visible="false"/>
+ 			<mixmotive visible="true"/>
+ 			<pip visible="true"/>
++			<seatmotive visible="true"/>
+ 			<tvwall visible="true"/>
+ 			<confcns visible="false"/>
+ 			<confroll visible="false"/>
+@@ -210,6 +217,7 @@
+ 			<audmix visible="false"/>
+ 			<mixmotive visible="true"/>
+ 			<pip visible="true"/>
++			<seatmotive visible="true"/>
+ 			<tvwall visible="false"/>
+ 			
+ 			<FeccCam visible="false"/>
+@@ -235,6 +243,7 @@
+ 			
+ 			<mixmotive visible="true"/>
+ 			<pip visible="true"/>
++			<seatmotive visible="true"/>
+ 			<tvwall visible="false"/>
+ 			<btnGoLeft visible="false"/>
+ 			<btnGoRight visible="false"/>
+@@ -252,6 +261,7 @@
+ 			
+ 			<mixmotive visible="true"/>
+ 			<pip visible="true"/>
++			<seatmotive visible="true"/>
+ 			<tvwall visible="false"/>
+ 			<btnGoLeft visible="false"/>
+ 			<btnGoRight visible="false"/>
+Index: source/confctrlif.cpp
+===================================================================
+--- source/confctrlif.cpp	(°æ±¾ 34922)
++++ source/confctrlif.cpp	(¹¤×÷¸±±¾)
+@@ -21,15 +21,36 @@
+     {
+         return tConfStatus;
+     }
+-
++#if 0
+     return m_pCnsConfCtrl->GetCnsConfStatus();
++#else
++    TTPCnsConfStatus tTTPCnsConfStatus;
++    tTTPCnsConfStatus.emState = em_CALL_CONNECTED;
++    tTTPCnsConfStatus.m_emCallType = emCallType_Conf;
++    tTTPCnsConfStatus.m_bMixMotive = true;
++    tTTPCnsConfStatus.m_emConfProtocal = emTpH323;
++    return tTTPCnsConfStatus;
++#endif
+ }
+ 
+ 
+ BOOL32 CCommonInterface::IsInConf( TCMSConf *pConf/* = NULL*/ )
+ {   
+-	BOOL32 bIn = FALSE;
++#if 0
++    BOOL32 bIn = FALSE;
++#else
++    BOOL32 bIn = TRUE;
++    if ( pConf != NULL )
++    {
++        pConf->m_emConfType = emCallType_Conf;
++        pConf->m_bStartAudmix = true;
++        pConf->m_bVacOn = true;
+ 
++        //pConf->m_emConfType = emCallType_Conf;
++    }
++    return bIn;
++#endif
++
+ 	TTPCnsConfStatus status = GetLocalCnsConfState() ;
+ 	if ( status.emState == em_CALL_CONNECTED )
+ 	{
+Index: source/confctrllogic.cpp
+===================================================================
+--- source/confctrllogic.cpp	(°æ±¾ 34922)
++++ source/confctrllogic.cpp	(¹¤×÷¸±±¾)
+@@ -23,6 +23,7 @@
+ 	MSG_SELECTCHANGE(_T("confdual"), OnTabConfDual)
+ 	MSG_SELECTCHANGE(_T("mixmotive"), OnTabMixMotive)
+ 	MSG_SELECTCHANGE(_T("pip"), OnTabPIP)
++    MSG_SELECTCHANGE(_T("seatmotive"), OnTabSeatMotive)
+ 	MSG_SELECTCHANGE(_T("tvwall"), OnTabTVWall)
+ 	MSG_SELECTCHANGE(_T("FeccCam"), OnTabFeccCam)
+ 
+@@ -421,6 +422,22 @@
+ 	return true;
+ }
+ 
++bool CConfCtrlLogic::OnTabSeatMotive(TNotifyUI& msg)
++{
++    CSlideTabLayoutUI *pControl = (CSlideTabLayoutUI*)ICncCommonOp::FindControl( m_pm, strConfCtrlSlideTab.c_str() );
++    if (pControl)
++    {
++        pControl->SelectItem(emTabID_SeatMotive);
++    }
++
++    String strCurWnd = UIDATAMGR->GetCurShowWndName();
++    if ( strCurWnd == g_stcStrTvWallChildDlg )
++    {
++        NOTIFY_MSG( UI_CNC_HIDE_TVWALLCHILDDLG_NTY, NULL, NULL );
++    }
++    return true;
++}
++
+ bool CConfCtrlLogic::OnTabTVWall(TNotifyUI& msg)
+ {
+ 	CSlideTabLayoutUI *pControl = (CSlideTabLayoutUI*)ICncCommonOp::FindControl( m_pm, strConfCtrlSlideTab.c_str() );
+Index: source/loginlogic.cpp
+===================================================================
+--- source/loginlogic.cpp	(°æ±¾ 34922)
++++ source/loginlogic.cpp	(¹¤×÷¸±±¾)
+@@ -89,7 +89,7 @@
+ 	}
+ 
+     ICncCommonOp::EnableControl( false, m_pm, _T("BtnLogin") );
+-
++#if 0
+ 	u16 uRe = ComInterface->Connect( dwIp, CONNETCT_CNS_PORT, strUserName.c_str(), strPassword.c_str() );
+ 	if ( uRe != NO_ERROR )
+ 	{  
+@@ -96,6 +96,10 @@
+         ICncCommonOp::EnableControl( true, m_pm, _T("BtnLogin") );
+ 		return false;
+ 	}
++#else
++    NOTIFY_MSG( UI_CNS_CONNECTED, TRUE, NO_ERROR );
++    //NOTIFY_MSG( UI_CNS_CONFSTATE_NOTIFY, NULL, NULL );
++#endif
+ 
+ 	return true;
+ }
+Index: source/mainmenulogic.cpp
+===================================================================
+--- source/mainmenulogic.cpp	(°æ±¾ 34922)
++++ source/mainmenulogic.cpp	(¹¤×÷¸±±¾)
+@@ -9,6 +9,7 @@
+ #include "cnsmanagelogic.h"
+ #include "confmixlogic.h"
+ 
++#define  TEST
+ #define  MAINMENU_INITHEIGHT   279   //mainmenu³õÊ¼¸ß¶È
+ 
+ template<> CMainMenuLogic* Singleton<CMainMenuLogic>::ms_pSingleton  = NULL;
+@@ -334,6 +335,9 @@
+ 
+ bool CMainMenuLogic::OnBtnRoomCtrl( TNotifyUI& msg )
+ {
++#ifdef TEST
++    WINDOW_MGR_PTR->ShowWindow( g_strRoomControlDlg.c_str(), true );
++#endif
+ 	WINDOW_MGR_PTR->ShowWindowFromLeftToRight( g_strRoomControlDlg.c_str() );
+ 
+ 	CMainFrameLogic::GetSingletonPtr()->SetTitle(_T("»á³¡¹ÜÀí"));
+@@ -346,6 +350,9 @@
+ 
+ bool CMainMenuLogic::OnBtnConfCtrl( TNotifyUI& msg )
+ {
++#ifdef TEST
++    WINDOW_MGR_PTR->ShowWindow( g_strConfCtrlDlg.c_str(), true );
++#endif
+ 	WINDOW_MGR_PTR->ShowWindowFromLeftToRight( g_strConfCtrlDlg.c_str() );
+ 
+ 	CMainFrameLogic::GetSingletonPtr()->SetTitle(_T("»áÒé¹ÜÀí"));
