@@ -1,0 +1,89 @@
+diff --git a/t5-neith/SipTool/prj_win32/skin/NeighborCfg.xml b/t5-neith/SipTool/prj_win32/skin/NeighborCfg.xml
+index dea5163..3d3e32d 100644
+--- a/t5-neith/SipTool/prj_win32/skin/NeighborCfg.xml
++++ b/t5-neith/SipTool/prj_win32/skin/NeighborCfg.xml
+@@ -15,9 +15,9 @@
+ 				<Label float="true" pos="16,14,0,0" width="32" height="14" text="搴忓彿" textcolor="#FF0F4F51" font="0" align="left" />
+ 				<Label float="true" pos="118,14,0,0" width="32" height="14" text="鍖哄彿" textcolor="#FF0F4F51" font="0" align="left" />
+ 				<Label float="true" pos="302,14,0,0" width="48" height="14" text="IP鍦板潃" textcolor="#FF0F4F51" font="0" align="left" />
+-				<Label float="true" pos="516,14,0,0" width="32" height="14" text="绔彛" textcolor="#FF0F4F51" font="0" align="left" />
++				<Label float="true" pos="518,14,0,0" width="32" height="14" text="绔彛" textcolor="#FF0F4F51" font="0" align="left" />
+ 				
+-				<List name="NeiRegServerList" float="true" pos="1,0,0,0" width="650" height="344" align="center" header="false" vscrollbar="true" itemfont="0" itemalign="center" itemtextcolor="#FF000000" itemhottextcolor="#FFFFFFFF" itemselectedtextcolor="#FFFFFFFF" itemselectedimage="res\neighbor_cfg\selected.png" itemhotimage="res\neighbor_cfg\selected.png" >
++				<List name="NeiRegServerList" float="true" pos="2,0,0,0" width="649" height="344" align="center" header="false" vscrollbar="true" itemfont="0" itemalign="center" itemtextcolor="#FF000000" itemhottextcolor="#FFFFFFFF" itemselectedtextcolor="#FFFFFFFF" itemselectedimage="file='res\neighbor_cfg\selected.png' source='1,1,648,20' corner='2,2,2,2'" itemhotimage="file='res\neighbor_cfg\selected.png' source='1,1,648,20' corner='2,2,2,2'" gdiplus="true">
+ 					<ListHeader width="649" height="35" visble="false" >
+ 						<ListHeaderItem width="50" sepwidth="0" />
+ 						<ListHeaderItem width="160" sepwidth="0" />
+diff --git a/t5-neith/SipTool/prj_win32/skin/mainframe.xml b/t5-neith/SipTool/prj_win32/skin/mainframe.xml
+index 2c09692..0e4a843 100644
+--- a/t5-neith/SipTool/prj_win32/skin/mainframe.xml
++++ b/t5-neith/SipTool/prj_win32/skin/mainframe.xml
+@@ -3,7 +3,7 @@
+ 	<Font name="瀹嬩綋" size="12" bold="false" />
+ 	<Font name="瀹嬩綋" size="12" bold="true" />
+ 	<Font name="寰蒋闆呴粦" size="12" bold="false" />
+-	<Default name="VScrollBar" value="width=&quot;23&quot; bknormalimage=&quot;res/public/scrollbar_bg.png&quot; button1normalimage=&quot;res/public/tria_top_normal.png&quot; button1hotimage=&quot;res/public/tria_top_hover.png&quot; button1pushedimage=&quot;res/public/tria_top_down.png&quot; button2normalimage=&quot;res/public/tria_bottom_normal.png&quot; button2hotimage=&quot;res/public/tria_bottom_hover.png&quot; button2pushedimage=&quot;res/public/tria_bottom_down.png&quot; thumbnormalimage=&quot;file=&apos;res/public/rail.png&apos; dest=&apos;2,2,2,2&apos;&quot;" />
++	<Default name="VScrollBar" value="width=&quot;19&quot; bknormalimage=&quot;file=&apos;res/public/scrollbar_bg.png&apos; corner=&apos;1,1,1,1&apos;&quot; button1normalimage=&quot;file=&apos;res/public/tria_top_normal.png&apos; dest=&apos;2,2,19,18&apos;&quot; button1hotimage=&quot;file=&apos;res/public/tria_top_hover.png&apos;&quot; button1pushedimage=&quot;file=&apos;res/public/tria_top_down.png&apos;&quot; button2normalimage=&quot;res/public/tria_bottom_normal.png&quot; button2hotimage=&quot;res/public/tria_bottom_hover.png&quot; button2pushedimage=&quot;res/public/tria_bottom_down.png&quot; thumbnormalimage=&quot;file=&apos;res/public/rail.png&apos; dest=&apos;2,0,19,0&apos; corner=&apos;2,2,2,2&apos;&quot; " />
+ 	
+ 	<!--Default name="Edit" value="bordercolor=&quot;#FFABABAB&quot; bordersize=&quot;0,0,0,1&quot; gdiplus=&quot;true&quot;" /-->
+ 	<Default name="Edit" value="gdiplus=&quot;true&quot;" />
+diff --git a/t5-neith/SipTool/source/loginlogic.cpp b/t5-neith/SipTool/source/loginlogic.cpp
+index 2269735..6a7c322 100644
+--- a/t5-neith/SipTool/source/loginlogic.cpp
++++ b/t5-neith/SipTool/source/loginlogic.cpp
+@@ -121,6 +121,9 @@ bool CLoginLogic::OnLoginBtnClicked(TNotifyUI& msg)
+     u32 dwIp = ntohl( inet_addr( CT2A(strIP) ) );
+     m_pm->DoCase(_T("caseIsLogining"));
+     CSipToolComInterface->SocketConnect( dwIp, CT2A(strUserName), CT2A(strPassWord));
++#if 1
++	NOTIFY_MSG(UI_SIPTOOL_CONNECTED, 1, 0);
++#endif
+ 
+     //5s 认证消息无响应
+     CButtonUI *pControl = (CButtonUI*)ISipToolCommonOp::FindControl( m_pm, _T("LoginBtn") );
+diff --git a/t5-neith/SipTool/source/mainframelogic.cpp b/t5-neith/SipTool/source/mainframelogic.cpp
+index 0dcfd34..cbfb8d5 100644
+--- a/t5-neith/SipTool/source/mainframelogic.cpp
++++ b/t5-neith/SipTool/source/mainframelogic.cpp
+@@ -95,11 +95,12 @@ bool CMainFrameLogic::IsIpFormatRight(LPCTSTR pIpAddr)
+ 
+ bool CMainFrameLogic::OnCreate( TNotifyUI& msg )
+ {
+-    //HWND hWnd = m_pm->GetPaintWindow();
+-    //LONG styleValue = ::GetWindowLong(hWnd, GWL_STYLE);
+-    //styleValue |= (WS_EX_APPWINDOW);//当窗口可见时将一个顶层窗口放置在任务栏上
+-    //styleValue &= ~(WS_EX_TOOLWINDOW); //去掉工具栏窗口属性，使其在任务栏可见
+-    //::SetWindowLong(hWnd, GWL_STYLE, styleValue);
++    HWND hWnd = m_pm->GetPaintWindow();
++    LONG styleValue = ::GetWindowLong(hWnd, GWL_STYLE);
++    styleValue |= (WS_EX_APPWINDOW);//当窗口可见时将一个顶层窗口放置在任务栏上
++	styleValue &= ~(WS_MAXIMIZEBOX);  //去除极大框窗口属性
++    styleValue &= ~(WS_EX_TOOLWINDOW); //去掉工具栏窗口属性，使其在任务栏可见
++    ::SetWindowLong(hWnd, GWL_STYLE, styleValue);
+ 
+ 	s32 nTop = 0;
+ 	RECT rcParent;
+diff --git a/t5-neith/SipToolLib/source/siptoolsysctrl.cpp b/t5-neith/SipToolLib/source/siptoolsysctrl.cpp
+index 44ba9a5..c5dd4a6 100644
+--- a/t5-neith/SipToolLib/source/siptoolsysctrl.cpp
++++ b/t5-neith/SipToolLib/source/siptoolsysctrl.cpp
+@@ -7,6 +7,19 @@ CSipToolSysCtrl::CSipToolSysCtrl(CSipToolSession &cSession) : CSipToolSysCtrlIF(
+ {
+     m_pSession = &cSession;
+     BuildEventsMap();
++
++	string strTemp = _T("");
++	TNeiRegServerInfo tNeighborInfo;
++	for (u32 dwIndex = 0; dwIndex < 15; dwIndex++)
++	{
++		memset(&tNeighborInfo, 0, sizeof(TNeiRegServerInfo));
++		strTemp = _T("192.168.0.1");
++		strncpy( tNeighborInfo.m_achIpAddr, strTemp.c_str(), strlen(strTemp.c_str()) );
++		tNeighborInfo.m_wPort = 5060;
++		strTemp = _T("0211");
++		strncpy( tNeighborInfo.m_achAreaCode, strTemp.c_str(), strlen(strTemp.c_str()) );
++		m_vNeighborInfo.push_back(tNeighborInfo);
++	}
+ }
+ 
+ CSipToolSysCtrl::~CSipToolSysCtrl()
