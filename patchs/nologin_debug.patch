@@ -1,0 +1,166 @@
+Index: include/UIDataMgr.h
+===================================================================
+--- include/UIDataMgr.h	(版本 35177)
++++ include/UIDataMgr.h	(工作副本)
+@@ -151,7 +151,11 @@
+ 	* @return 成功返回TRUE,失败返回FALSE
+ 	* @remarks 
+ 	*/
++#ifdef INCONF
++    EMLocalCnsState GetLocalCnsState( ){ return emLocalCnsInConf ;}
++#else
+     EMLocalCnsState GetLocalCnsState( ){ return m_emLocalCnsState ;}
++#endif
+ 
+ 
+     /**
+Index: prj_win32/stdafx.h
+===================================================================
+--- prj_win32/stdafx.h	(版本 35177)
++++ prj_win32/stdafx.h	(工作副本)
+@@ -53,4 +53,9 @@
+ #endif
+ #endif
+ 
++//#define LOGIN
++#ifndef LOGIN
++#define CHAIR
++#define INCONF
++#endif
+ 
+Index: prj_win32/system.xml
+===================================================================
+--- prj_win32/system.xml	(版本 35177)
++++ prj_win32/system.xml	(工作副本)
+@@ -3,4 +3,4 @@
+ pcversion:鏄惁涓篜C鐗堟湰
+ Resolution锛氬垎杈ㄧ巼锛岄粯璁や负1920*1200锛屼慨鏀瑰悗鐣岄潰绛夋瘮鎷変几
+  -->
+-<system skin="Skin\" pcversion="true" Resolution="1920,1200" />
+\ No newline at end of file
++<system skin="Skin\" pcversion="true" Resolution="1440,900" />
+\ No newline at end of file
+Index: source/confctrlif.cpp
+===================================================================
+--- source/confctrlif.cpp	(版本 35177)
++++ source/confctrlif.cpp	(工作副本)
+@@ -21,15 +21,38 @@
+     {
+         return tConfStatus;
+     }
+-
+-    return m_pCnsConfCtrl->GetCnsConfStatus();
++#ifdef INCONF
++    TTPCnsConfStatus tTTPCnsConfStatus;
++    tTTPCnsConfStatus.emState = em_CALL_CONNECTED;
++    tTTPCnsConfStatus.m_emCallType = emCallType_Conf;
++    tTTPCnsConfStatus.m_bMixMotive = true;
++    tTTPCnsConfStatus.m_emConfProtocal = emTpH320;
++    tTTPCnsConfStatus.m_emTPEncryptType = emTPEncryptTypeNone;
++    return tTTPCnsConfStatus;
++#else
++    return m_pCnsConfCtrl->GetCnsConfStatus();    
++#endif
+ }
+ 
+ 
+ BOOL32 CCommonInterface::IsInConf( TCMSConf *pConf/* = NULL*/ )
+ {   
+-	BOOL32 bIn = FALSE;
++#ifdef INCONF
++    BOOL32 bIn = TRUE;
++    if ( pConf != NULL )
++    {
++        pConf->m_emConfType = emCallType_Conf;
++        pConf->m_bStartAudmix = true;
++        pConf->m_bVacOn = true;
++        strncpy(pConf->m_achConfName, "meeting",TP_MAX_ALIAS_LEN);
+ 
++        //pConf->m_emConfType = emCallType_Conf; emCallType_P2P
++    }
++    return bIn;
++#else
++    BOOL32 bIn = FALSE;    
++#endif
++
+ 	TTPCnsConfStatus status = GetLocalCnsConfState() ;
+ 	if ( status.emState == em_CALL_CONNECTED )
+ 	{
+@@ -791,6 +814,13 @@
+ 		return FALSE;
+ 	}
+ 
++#ifndef LOGIN
++#ifdef CHAIR
++    return TRUE;
++#else
++    return FALSE;
++#endif
++#endif
+ 
+ 	TTPCnsInfo tCnsInfo;
+ 	GetLocalCnsInfo(tCnsInfo);  
+Index: source/confctrllogic.cpp
+===================================================================
+--- source/confctrllogic.cpp	(版本 35177)
++++ source/confctrllogic.cpp	(工作副本)
+@@ -277,6 +277,11 @@
+ 	
+ 	UpdateCnsList();
+ 	UpdateShowList();
++#ifdef INCONF
++    bool bHandle = true;
++    OnConfStateNty(NULL, NULL, bHandle);
++#else
++#endif
+ 	return true;
+ }
+ 
+Index: source/loginlogic.cpp
+===================================================================
+--- source/loginlogic.cpp	(版本 35177)
++++ source/loginlogic.cpp	(工作副本)
+@@ -98,7 +98,7 @@
+ 	}
+ 
+     ICncCommonOp::EnableControl( false, m_pm, _T("BtnLogin") );
+-
++#ifdef LOGIN
+ 	u16 uRe = NO_ERROR;
+     if (emIpType == emIPV6)
+     {
+@@ -113,6 +113,10 @@
+         ICncCommonOp::EnableControl( true, m_pm, _T("BtnLogin") );
+ 		return false;
+ 	}
++#else
++    NOTIFY_MSG( UI_CNS_CONNECTED, TRUE, NO_ERROR );
++    //NOTIFY_MSG( UI_CNS_CONFSTATE_NOTIFY, NULL, NULL );
++#endif
+ 
+ 	return true;
+ }
+Index: source/mainmenulogic.cpp
+===================================================================
+--- source/mainmenulogic.cpp	(版本 35177)
++++ source/mainmenulogic.cpp	(工作副本)
+@@ -334,6 +334,9 @@
+ 
+ bool CMainMenuLogic::OnBtnRoomCtrl( TNotifyUI& msg )
+ {
++#ifdef INCONF
++    WINDOW_MGR_PTR->ShowWindow( g_strRoomControlDlg.c_str(), true );
++#endif
+ 	WINDOW_MGR_PTR->ShowWindowFromLeftToRight( g_strRoomControlDlg.c_str() );
+ 
+ 	CMainFrameLogic::GetSingletonPtr()->SetTitle(_T("会场管理"));
+@@ -346,6 +349,9 @@
+ 
+ bool CMainMenuLogic::OnBtnConfCtrl( TNotifyUI& msg )
+ {
++#ifdef INCONF
++    WINDOW_MGR_PTR->ShowWindow( g_strConfCtrlDlg.c_str(), true );
++#endif
+ 	WINDOW_MGR_PTR->ShowWindowFromLeftToRight( g_strConfCtrlDlg.c_str() );
+ 
+ 	CMainFrameLogic::GetSingletonPtr()->SetTitle(_T("会议管理"));
