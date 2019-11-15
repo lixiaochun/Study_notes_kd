@@ -2,6 +2,7 @@
 #define u32 unsigned int
 #define u16 unsigned short int
 #define s32 int
+#define u8 unsigned char
 
 typedef struct
 {

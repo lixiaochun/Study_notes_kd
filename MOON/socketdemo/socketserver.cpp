@@ -6,6 +6,7 @@
 #include <Winsock2.h>
 #include <Windows.h>
 #include "crkmessage.h"
+#include "rk100_msg.h"
 
 #pragma comment(lib,"Ws2_32.lib")
 
@@ -42,7 +43,7 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
 {
     SOCKET ClientSocket = (SOCKET)lpParameter;
     int Ret = 0;
-    char RecvBuffer[MAX_PATH];
+    char RecvBuffer[1024];
 
     while ( true )
     {
@@ -56,16 +57,32 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
         TRK100MsgHead *tRK100MsgHead = (TRK100MsgHead*)(RecvBuffer);
         cout<<"接收到客户信息为:\n"<< "Event:" << ntohl(tRK100MsgHead->dwEvent)<< endl;
         //cout<< "Content:" << *(int*)(RecvBuffer+sizeof(TRK100MsgHead))<< endl;
-        //登陆消息
-        if ( ntohl(tRK100MsgHead->dwEvent) ==  2500)
-        {
-            TRK100MsgHead tRK100MsgSend;
-            memset(&tRK100MsgSend, 0, sizeof(TRK100MsgHead));
 
-            tRK100MsgSend.dwEvent = htonl(2501);
+        //登陆消息
+        if ( ntohl(tRK100MsgHead->dwEvent) ==  RK100_EVT_LOGIN)
+        {
+            char bySendBuffer[1024];
+            ZeroMemory(bySendBuffer, 1024);
+            TRK100MsgHead tRK100MsgSend;
+            ZeroMemory(&tRK100MsgSend, sizeof(TRK100MsgHead));
+            tRK100MsgSend.dwEvent = htonl(RK100_EVT_LOGIN_ACK);
+            tRK100MsgSend.wMsgLen = htons(3*sizeof(TTPMoonCamInfo));
             tRK100MsgSend.wOptRtn = htons(0x800A);
+
+            TTPMoonCamInfo tCamInfo[3];
+            ZeroMemory(tCamInfo, 3*sizeof(TTPMoonCamInfo));
+            tCamInfo[0].TCamIDIndex.CamNum1Flag = 1;
+            tCamInfo[0].dwZoomPos = 100;
+            tCamInfo[1].TCamIDIndex.CamNum2Flag = 1;
+            tCamInfo[1].dwZoomPos = 200;
+            tCamInfo[2].TCamIDIndex.CamNum3Flag = 1;
+            tCamInfo[2].dwZoomPos = 300;
+
+            memcpy( bySendBuffer, &tRK100MsgSend, sizeof(TRK100MsgHead) );
+            memcpy( bySendBuffer+sizeof(TRK100MsgHead), tCamInfo, 3*sizeof(TTPMoonCamInfo) );
+
             //send msg to client
-            Ret = send(ClientSocket, (char *)&tRK100MsgSend, (int)sizeof(TRK100MsgHead), 0);
+            Ret = send(ClientSocket, (char *)bySendBuffer, (int)( sizeof(TRK100MsgHead) + 3*sizeof(TTPMoonCamInfo) ), 0);
             if ( Ret == SOCKET_ERROR )
             {
                 cout<<"Send Info Error::"<<GetLastError()<<endl;
@@ -73,9 +90,8 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
             }
             cout<<"After Send Msg:"<<ntohl(tRK100MsgSend.dwEvent)<<endl;
         }
-
         //心跳
-        if ( ntohl(tRK100MsgHead->dwEvent) ==  2524)
+        else if ( ntohl(tRK100MsgHead->dwEvent) ==  2524)
         {
             TRK100MsgHead tRK100MsgHead;
             memset(&tRK100MsgHead, 0x0, sizeof(TRK100MsgHead));
@@ -103,6 +119,44 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
             CloseHandle(hThread);
             */
             //cout<<"After Send Msg:"<<RecvBuffer<<endl;
+        }
+        //ZOOM值调节
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_SET_CAM_ZOOM_VAL )
+        {
+            tRK100MsgHead->dwEvent = htonl(RK100_EVT_SET_CAM_ZOOM_VAL_ACK);
+            tRK100MsgHead->wOptRtn = htons(0);
+            TCamZoomVal *ptZoomVal = (TCamZoomVal*)(RecvBuffer + sizeof(TRK100MsgHead));
+            if ( ptZoomVal->ZoomUpFlag )
+            {
+                ptZoomVal->InputVal += 1; 
+            }
+            else if ( ptZoomVal->ZoomDownFlag )
+            {
+                ptZoomVal->InputVal -= 1;
+            }
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+        }
+
+        //其它消息
+        else
+        {
+            tRK100MsgHead->dwEvent = htonl(ntohl(tRK100MsgHead->dwEvent)+1);
+            tRK100MsgHead->wOptRtn = htons(0);
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
         }
     }
 
