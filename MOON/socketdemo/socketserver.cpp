@@ -144,6 +144,28 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
             cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
         }
 
+        //获取网络参数
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_GET_NETPARAM )
+        {
+            tRK100MsgHead->dwEvent = htonl(RK100_EVT_GET_NETPARAM_ACK);
+            tRK100MsgHead->wOptRtn = htons(0);
+            tRK100MsgHead->wMsgLen = htons(sizeof(TRK100NetParam));
+            TRK100NetParam tNetInfo;
+            ZeroMemory(&tNetInfo, sizeof(TRK100NetParam));
+            tNetInfo.dwIP = inet_addr("127.0.0.1");
+
+            memcpy( RecvBuffer + sizeof(TRK100MsgHead), &tNetInfo, sizeof(TRK100NetParam) );
+
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+        }
+
         //其它消息
         else
         {
