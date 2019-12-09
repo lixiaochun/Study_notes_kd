@@ -13,27 +13,38 @@
 using namespace std;
 #define PORT 8000
 #define IP_ADDRESS "172.16.160.113"
+//#define IP_ADDRESS "192.169.0.159"
+#define VERSION_INFO "V6.0.0.4.0.20198888"
 
-DWORD WINAPI ThreadHeartBeat(LPVOID lpParameter)
+static UINT     g_nTransTimeID = 0;                     //Timer id
+
+VOID  CALLBACK  CWaitTimerFun( HWND hwnd, UINT uMsg, UINT_PTR idEvent, DWORD dwTime )
+{   
+    BOOL bOk = KillTimer( NULL, g_nTransTimeID );	//关掉定时器
+}
+
+DWORD WINAPI ThreadWaitSend(LPVOID lpParameter)
 {
+    Sleep(10000);  //延时
+
     SOCKET ClientSocket = (SOCKET)lpParameter;
     int Ret = 0;
+    char bySendBuffer[256] = {0};
+    ZeroMemory(bySendBuffer, 256);
     TRK100MsgHead tRK100MsgHead;
     memset(&tRK100MsgHead, 0x0, sizeof(TRK100MsgHead));
-    while ( 1 )
+    //while ( 1 )
     {
-        tRK100MsgHead.dwEvent = htonl(2525);
+        tRK100MsgHead.dwEvent = htonl(RK100_EVT_TFTP_UPDATE_SECOND_NOTIFY);
         tRK100MsgHead.wOptRtn = htons(0);
             //send msg to client
             Ret = send(ClientSocket, (char*)&tRK100MsgHead, (int)sizeof(TRK100MsgHead), 0);
             if ( Ret == SOCKET_ERROR )
             {
                 cout<<"Send Info Error::"<<GetLastError()<<endl;
-                break;
+                return -1;
             }
             cout<<"After Send Msg:"<<ntohl(tRK100MsgHead.dwEvent)<<endl;
-
-            Sleep(3000);
     }
     return 0;
 }
@@ -73,10 +84,17 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
             ZeroMemory(tCamInfo, 3*sizeof(TTPMoonCamInfo));
             tCamInfo[0].TCamIDIndex.CamNum1Flag = 1;
             tCamInfo[0].dwZoomPos = 100;
+            tCamInfo[0].OutputFmt.FMT4K_25fps_flag = 1;
+
             tCamInfo[1].TCamIDIndex.CamNum2Flag = 1;
             tCamInfo[1].dwZoomPos = 200;
+            tCamInfo[1].FocusMode.ManualModeFlag = 1;
+            tCamInfo[1].CamImagParam.Gamma_opt_2_flag = 1;
+            tCamInfo[1].OutputFmt.FMT4K_25fps_flag = 1;
+
             tCamInfo[2].TCamIDIndex.CamNum3Flag = 1;
             tCamInfo[2].dwZoomPos = 300;
+            tCamInfo[2].OutputFmt.FMT4K_25fps_flag = 1;
 
             memcpy( bySendBuffer, &tRK100MsgSend, sizeof(TRK100MsgHead) );
             memcpy( bySendBuffer+sizeof(TRK100MsgHead), tCamInfo, 3*sizeof(TTPMoonCamInfo) );
@@ -89,6 +107,16 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
                 break;
             }
             cout<<"After Send Msg:"<<ntohl(tRK100MsgSend.dwEvent)<<endl;
+
+            //版本号
+            /*HANDLE hThread = NULL;
+            hThread = CreateThread(NULL, 0, ThreadWaitSend, (LPVOID)ClientSocket, 0, NULL);
+            if ( hThread == NULL )
+            {
+                cout<<"Create Thread Failed!"<<endl;
+                break;
+            }
+            CloseHandle(hThread);*/
         }
         //心跳
         else if ( ntohl(tRK100MsgHead->dwEvent) ==  2524)
@@ -143,7 +171,36 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
             }
             cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
         }
-
+        //ZOOM值调节
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_SET_CAM_GAIN )
+        {
+            tRK100MsgHead->dwEvent = htonl(RK100_EVT_SET_CAM_GAIN_ACK);
+            tRK100MsgHead->wOptRtn = htons(0);
+            TGainMode *ptCainVal = (TGainMode*)(RecvBuffer + sizeof(TRK100MsgHead));
+            if ( ptCainVal->CAMGainCmdUpFlag )
+            {
+                ptCainVal->GainInputVal += 3; 
+            }
+            else if ( ptCainVal->CAMGainCmdDownFlag )
+            {
+                if ( ptCainVal->GainInputVal <= 3)
+                {
+                    ptCainVal->GainInputVal = 0;
+                }
+                else
+                {
+                    ptCainVal->GainInputVal -= 3;
+                } 
+            }
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+        }
         //获取网络参数
         else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_GET_NETPARAM )
         {
@@ -152,9 +209,167 @@ DWORD WINAPI ClientThread(LPVOID lpParameter)
             tRK100MsgHead->wMsgLen = htons(sizeof(TRK100NetParam));
             TRK100NetParam tNetInfo;
             ZeroMemory(&tNetInfo, sizeof(TRK100NetParam));
-            tNetInfo.dwIP = inet_addr("127.0.0.1");
+            tNetInfo.dwIP = htonl(inet_addr("192.169.0.100"));
+            tNetInfo.dwSubMask = htonl(inet_addr("255.255.254.0"));
+            tNetInfo.dwGateway = htonl(inet_addr("192.169.1.1"));
 
             memcpy( RecvBuffer + sizeof(TRK100MsgHead), &tNetInfo, sizeof(TRK100NetParam) );
+
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+sizeof(TRK100NetParam)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+        }
+        //获取版本信息
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_GET_VERSION_INFO )
+        {
+            tRK100MsgHead->dwEvent = htonl(RK100_EVT_GET_VERSION_INFO_ACK);
+            tRK100MsgHead->wOptRtn = htons(0);
+            tRK100MsgHead->wMsgLen = htons(38);
+            char achVerInfo[38] = {0};
+            memcpy(achVerInfo, VERSION_INFO, strlen(VERSION_INFO) );
+            memcpy( RecvBuffer + sizeof(TRK100MsgHead), achVerInfo, strlen(achVerInfo) );
+
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+38), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+        }
+        //恢复默认
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_RECOVERY_DEFAULT_SET )
+        {
+            char bySendBuffer[1024];
+            ZeroMemory(bySendBuffer, 1024);
+            TRK100MsgHead tRK100MsgSend;
+            ZeroMemory(&tRK100MsgSend, sizeof(TRK100MsgHead));
+            tRK100MsgSend.dwEvent = htonl(RK100_EVT_RECOVERY_DEFAULT_SET_ACK);
+            tRK100MsgSend.wMsgLen = htons(sizeof(TTPMoonCamInfo) + sizeof(TRK100NetParam));
+            tRK100MsgSend.wOptRtn = htons(0);
+
+            TTPMoonCamInfo tCamInfo;
+            ZeroMemory(&tCamInfo, sizeof(TTPMoonCamInfo));
+            tCamInfo.TCamIDIndex.CamNum1Flag = 1;
+            tCamInfo.dwZoomPos = 110;
+            tCamInfo.OutputFmt.FMT4K_30fps_flag = 1;
+
+            TRK100NetParam tNetParam;
+            ZeroMemory(&tNetParam, sizeof(TRK100NetParam));
+            tNetParam.dwIP = htonl(inet_addr("192.169.0.100"));
+            tNetParam.dwSubMask = htonl(inet_addr("255.255.254.0"));
+            tNetParam.dwGateway = htonl(inet_addr("192.169.1.1"));
+
+            memcpy( bySendBuffer, &tRK100MsgSend, sizeof(TRK100MsgHead) );
+            memcpy( bySendBuffer+sizeof(TRK100MsgHead), &tCamInfo, sizeof(TTPMoonCamInfo) );
+            memcpy( bySendBuffer+sizeof(TRK100MsgHead) + sizeof(TTPMoonCamInfo), &tNetParam, sizeof(TRK100NetParam) );
+
+            Sleep(3000);
+            //send msg to client
+            Ret = send(ClientSocket, (char *)bySendBuffer, (int)( sizeof(TRK100MsgHead) + sizeof(TTPMoonCamInfo) + sizeof(TRK100NetParam) ), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgSend.dwEvent)<<endl;
+        }
+        //tftp first
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_TFTP_UPDATE_FIRST )
+        {
+            tRK100MsgHead->dwEvent = htonl(ntohl(tRK100MsgHead->dwEvent)+1);
+            tRK100MsgHead->wOptRtn = htons(0);
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+
+            //Sleep(1000);
+
+            tRK100MsgHead->dwEvent = htonl(RK100_EVT_TFTP_UPDATE_FIRST_NOTIFY);
+            tRK100MsgHead->wOptRtn = htons(0);
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+        }
+
+        //同步
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_SET_CAM_ID )
+        {
+            tRK100MsgHead->dwEvent = htonl(ntohl(tRK100MsgHead->dwEvent)+1);
+            tRK100MsgHead->wOptRtn = htons(0);
+
+            //Sleep(2000);
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+        }
+        //tftp second
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_TFTP_UPDATE_SECOND )
+        {
+            tRK100MsgHead->dwEvent = htonl(ntohl(tRK100MsgHead->dwEvent)+1);
+            tRK100MsgHead->wOptRtn = htons(0);
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+
+            //g_nTransTimeID = SetTimer( NULL, 0, 10000, CWaitTimerFun );
+            HANDLE hThread = NULL;
+            hThread = CreateThread(NULL, 0, ThreadWaitSend, (LPVOID)ClientSocket, 0, NULL);
+            if ( hThread == NULL )
+            {
+                cout<<"Create Thread Failed!"<<endl;
+                break;
+            }
+            CloseHandle(hThread);
+
+            tRK100MsgHead->dwEvent = htonl(RK100_EVT_TFTP_UPDATE_SECOND_NOTIFY);
+            tRK100MsgHead->wOptRtn = htons(0);
+            //send msg to client
+            Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
+            if ( Ret == SOCKET_ERROR )
+            {
+                cout<<"Send Info Error::"<<GetLastError()<<endl;
+                break;
+            }
+            cout<<"After Send Msg:"<<ntohl(tRK100MsgHead->dwEvent)<<endl;
+        }
+        //白平衡调节
+        else if ( ntohl(tRK100MsgHead->dwEvent) == RK100_EVT_SET_CAM_WB )
+        {
+            tRK100MsgHead->dwEvent = htonl(RK100_EVT_SET_CAM_WB_ACK);
+            tRK100MsgHead->wOptRtn = htons(0);
+            TCamWBMode *ptCamWBMode = (TCamWBMode*)(RecvBuffer + sizeof(TRK100MsgHead));
+            if (ptCamWBMode->CamWBAutoModeFlag == 1)
+            {
+                ptCamWBMode->RGainVal = 100;
+                ptCamWBMode->BGainVal = 100;
+            }
 
             //send msg to client
             Ret = send(ClientSocket, (char*)RecvBuffer, (int)(sizeof(TRK100MsgHead)+ntohs(tRK100MsgHead->wMsgLen)), 0);
