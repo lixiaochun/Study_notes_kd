@@ -156,9 +156,9 @@
          <property name="geometry">
           <rect>
            <x>0</x>
-           <y>10</y>
+           <y>0</y>
            <width>411</width>
-           <height>251</height>
+           <height>371</height>
           </rect>
          </property>
          <property name="title">
@@ -187,7 +187,7 @@
            </rect>
           </property>
          </widget>
-         <widget class="QCheckBox" name="checkBox">
+         <widget class="QCheckBox" name="chkBoxListEditable">
           <property name="geometry">
            <rect>
             <x>320</x>
@@ -253,6 +253,26 @@
           </property>
          </widget>
         </widget>
+        <widget class="QListWidget" name="listWidget">
+         <property name="geometry">
+          <rect>
+           <x>5</x>
+           <y>101</y>
+           <width>401</width>
+           <height>251</height>
+          </rect>
+         </property>
+         <item>
+          <property name="text">
+           <string>New Item</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>New Item2</string>
+          </property>
+         </item>
+        </widget>
        </widget>
        <widget class="QWidget" name="QTreeWidget">
         <attribute name="title">
@@ -291,7 +311,132 @@
     <string>QListWidget user</string>
    </property>
   </action>
+  <action name="actListIni">
+   <property name="text">
+    <string>初始化列表</string>
+   </property>
+   <property name="toolTip">
+    <string>初始化列表</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actListClear">
+   <property name="text">
+    <string>清除列表</string>
+   </property>
+   <property name="toolTip">
+    <string>清除列表</string>
+   </property>
+  </action>
+  <action name="actListInsert">
+   <property name="text">
+    <string>插入项</string>
+   </property>
+   <property name="toolTip">
+    <string>插入项</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actListAppend">
+   <property name="text">
+    <string>添加项</string>
+   </property>
+   <property name="toolTip">
+    <string>添加项</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actListDelete">
+   <property name="text">
+    <string>删除当前项</string>
+   </property>
+   <property name="toolTip">
+    <string>删除当前项</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="actSelAll">
+   <property name="text">
+    <string>全选</string>
+   </property>
+   <property name="toolTip">
+    <string>全选</string>
+   </property>
+  </action>
+  <action name="actSelNone">
+   <property name="text">
+    <string>全不选</string>
+   </property>
+   <property name="toolTip">
+    <string>全不选</string>
+   </property>
+  </action>
+  <action name="actSelInvs">
+   <property name="text">
+    <string>反选</string>
+   </property>
+   <property name="toolTip">
+    <string>反选</string>
+   </property>
+  </action>
+  <action name="actQuit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="toolTip">
+    <string>退出</string>
+   </property>
+  </action>
+  <action name="actSelPopMenu">
+   <property name="text">
+    <string>项选择</string>
+   </property>
+   <property name="toolTip">
+    <string>项选择</string>
+   </property>
+  </action>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actSelPopMenu</sender>
+   <signal>triggered()</signal>
+   <receiver>actSelInvs</receiver>
+   <slot>trigger()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actQuit</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>324</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>
