@@ -1,0 +1,1633 @@
+[BEGIN] 2020-09-22 13:27:27
+[2020-09-22 13:27:28] Username:
+[2020-09-22 13:27:28] Password:
+[2020-09-22 13:27:28] tpad->
+[2020-09-22 13:27:29] tpad->
+[2020-09-22 13:27:30] tpad->showver
+[2020-09-22 13:27:30] TPad version: V5.2.1.4.5.20200922
+[2020-09-22 13:27:30] compile time: Sep 22 2020 02:02:30Return value: 1
+[2020-09-22 13:27:30] tpad->
+[2020-09-22 13:27:31] tpad->
+[2020-09-22 13:27:32] tpad->prt
+[2020-09-22 13:27:32] Return value: 33737912
+[2020-09-22 13:28:05] tpad->[Osp]sock receive error, errno 10054
+[2020-09-22 13:28:05] Osp: node 41 (172.16.35.24) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 13:28:05] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 41
+[2020-09-22 13:28:05] [osp]: node(41) discon.reason is 3.
+[2020-09-22 13:28:05] 
+[2020-09-22 13:28:05] 2020/09/22 13:26:47
+[2020-09-22 13:28:05] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 41)
+[2020-09-22 13:28:05] 
+[2020-09-22 13:28:05] 2020/09/22 13:26:47
+[2020-09-22 13:28:05] [发送 CNS 消息]: ev_CnsDisconnect_Nty[3217].  bActiveExit:0
+[2020-09-22 13:28:10] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:15] 
+[2020-09-22 13:28:15] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:28:15] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:20] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:20] 
+[2020-09-22 13:28:20] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:28:25] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:25] 
+[2020-09-22 13:28:25] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:28:30] 
+[2020-09-22 13:28:30] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:28:30] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:35] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:35] 
+[2020-09-22 13:28:35] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:28:40] 
+[2020-09-22 13:28:40] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:28:40] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:43] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 42!
+[2020-09-22 13:28:43] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 42!
+[2020-09-22 13:28:43] 
+[2020-09-22 13:28:43] 2020/09/22 13:27:25
+[2020-09-22 13:28:43] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:28:43] 
+[2020-09-22 13:28:43] 2020/09/22 13:27:25
+[2020-09-22 13:28:43] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:28:43] Osp: node42 (172.16.35.24) disconnected by app.
+[2020-09-22 13:28:43] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 42
+[2020-09-22 13:28:43] [osp]: node(42) discon.reason is 4.
+[2020-09-22 13:28:43] 
+[2020-09-22 13:28:43] 2020/09/22 13:27:25
+[2020-09-22 13:28:43] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 42)
+[2020-09-22 13:28:45] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:45] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 43!
+[2020-09-22 13:28:45] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 43!
+[2020-09-22 13:28:45] 
+[2020-09-22 13:28:45] 2020/09/22 13:27:27
+[2020-09-22 13:28:45] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:28:45] 
+[2020-09-22 13:28:45] 2020/09/22 13:27:27
+[2020-09-22 13:28:45] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:28:45] Osp: node43 (172.16.35.24) disconnected by app.
+[2020-09-22 13:28:45] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 43
+[2020-09-22 13:28:45] [osp]: node(43) discon.reason is 4.
+[2020-09-22 13:28:45] 
+[2020-09-22 13:28:45] 2020/09/22 13:27:27
+[2020-09-22 13:28:45] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 43)
+[2020-09-22 13:28:50] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:50] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 44!
+[2020-09-22 13:28:50] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 44!
+[2020-09-22 13:28:50] 
+[2020-09-22 13:28:50] 2020/09/22 13:27:32
+[2020-09-22 13:28:50] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:28:50] 
+[2020-09-22 13:28:50] 2020/09/22 13:27:32
+[2020-09-22 13:28:50] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:28:50] Osp: node44 (172.16.35.24) disconnected by app.
+[2020-09-22 13:28:50] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 44
+[2020-09-22 13:28:50] [osp]: node(44) discon.reason is 4.
+[2020-09-22 13:28:50] 
+[2020-09-22 13:28:50] 2020/09/22 13:27:32
+[2020-09-22 13:28:50] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 44)
+[2020-09-22 13:28:55] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:28:55] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 45!
+[2020-09-22 13:28:55] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 45!
+[2020-09-22 13:28:55] 
+[2020-09-22 13:28:55] 2020/09/22 13:27:37
+[2020-09-22 13:28:55] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:28:55] 
+[2020-09-22 13:28:55] 2020/09/22 13:27:37
+[2020-09-22 13:28:55] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:28:55] Osp: node45 (172.16.35.24) disconnected by app.
+[2020-09-22 13:28:55] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 45
+[2020-09-22 13:28:55] [osp]: node(45) discon.reason is 4.
+[2020-09-22 13:28:55] 
+[2020-09-22 13:28:55] 2020/09/22 13:27:37
+[2020-09-22 13:28:55] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 45)
+[2020-09-22 13:29:00] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:29:00] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 46!
+[2020-09-22 13:29:00] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 46!
+[2020-09-22 13:29:00] 
+[2020-09-22 13:29:00] 2020/09/22 13:27:42
+[2020-09-22 13:29:00] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:29:00] 
+[2020-09-22 13:29:00] 2020/09/22 13:27:42
+[2020-09-22 13:29:00] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:29:00] Osp: node46 (172.16.35.24) disconnected by app.
+[2020-09-22 13:29:00] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 46
+[2020-09-22 13:29:00] [osp]: node(46) discon.reason is 4.
+[2020-09-22 13:29:00] 
+[2020-09-22 13:29:00] 2020/09/22 13:27:42
+[2020-09-22 13:29:00] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 46)
+[2020-09-22 13:29:05] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:29:05] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 47!
+[2020-09-22 13:29:05] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 47!
+[2020-09-22 13:29:05] 
+[2020-09-22 13:29:05] 2020/09/22 13:27:47
+[2020-09-22 13:29:05] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:29:05] 
+[2020-09-22 13:29:05] 2020/09/22 13:27:47
+[2020-09-22 13:29:05] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:29:05] Osp: node47 (172.16.35.24) disconnected by app.
+[2020-09-22 13:29:05] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 47
+[2020-09-22 13:29:05] [osp]: node(47) discon.reason is 4.
+[2020-09-22 13:29:05] 
+[2020-09-22 13:29:05] 2020/09/22 13:27:47
+[2020-09-22 13:29:05] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 47)
+[2020-09-22 13:29:10] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:29:10] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 48!
+[2020-09-22 13:29:10] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 48!
+[2020-09-22 13:29:10] 
+[2020-09-22 13:29:10] 2020/09/22 13:27:52
+[2020-09-22 13:29:10] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:29:10] 
+[2020-09-22 13:29:10] 2020/09/22 13:27:52
+[2020-09-22 13:29:10] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:29:10] Osp: node48 (172.16.35.24) disconnected by app.
+[2020-09-22 13:29:10] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 48
+[2020-09-22 13:29:10] [osp]: node(48) discon.reason is 4.
+[2020-09-22 13:29:10] 
+[2020-09-22 13:29:10] 2020/09/22 13:27:52
+[2020-09-22 13:29:10] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 48)
+[2020-09-22 13:29:15] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:29:15] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 49!
+[2020-09-22 13:29:15] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 49!
+[2020-09-22 13:29:15] 
+[2020-09-22 13:29:15] 2020/09/22 13:27:57
+[2020-09-22 13:29:15] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:29:15] 
+[2020-09-22 13:29:15] 2020/09/22 13:27:57
+[2020-09-22 13:29:15] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:29:15] Osp: node49 (172.16.35.24) disconnected by app.
+[2020-09-22 13:29:15] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 49
+[2020-09-22 13:29:15] [osp]: node(49) discon.reason is 4.
+[2020-09-22 13:29:15] 
+[2020-09-22 13:29:15] 2020/09/22 13:27:57
+[2020-09-22 13:29:15] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 49)
+[2020-09-22 13:29:20] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:29:20] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 50!
+[2020-09-22 13:29:20] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 50!
+[2020-09-22 13:29:20] 
+[2020-09-22 13:29:20] 2020/09/22 13:28:02
+[2020-09-22 13:29:20] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:29:23] Osp: node50 (172.16.35.24) disconnected by app.
+[2020-09-22 13:29:23] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 50
+[2020-09-22 13:29:23] 
+[2020-09-22 13:29:23] 2020/09/22 13:28:05
+[2020-09-22 13:29:23] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 50)
+[2020-09-22 13:29:23] [Osp]sock receive error, errno 10038
+[2020-09-22 13:29:23] [osp]: node(50) discon.reason is 4.
+[2020-09-22 13:29:23] Osp: node 50 (172.16.35.24) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 13:29:25] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:29:25] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 51!
+[2020-09-22 13:29:25] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 51!
+[2020-09-22 13:29:25] 
+[2020-09-22 13:29:25] 2020/09/22 13:28:07
+[2020-09-22 13:29:25] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:10
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:10
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:10
+[2020-09-22 13:29:28] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:10
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:10
+[2020-09-22 13:29:28] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 0 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 0 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 0 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 0 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:3587900000024 IP:0.0.0.0
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:3587900000024 IP:0.0.0.0
+[2020-09-22 13:29:28] 
+[2020-09-22 13:29:28] 2020/09/22 13:28:11
+[2020-09-22 13:29:28] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:0
+[2020-09-22 13:29:29] 
+[2020-09-22 13:29:29] 2020/09/22 13:28:11
+[2020-09-22 13:29:29] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:29:40] 
+[2020-09-22 13:29:40] 2020/09/22 13:28:22
+[2020-09-22 13:29:40] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:29:40] 
+[2020-09-22 13:29:40] 2020/09/22 13:28:22
+[2020-09-22 13:29:40] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 13:29:40] 
+[2020-09-22 13:29:40] 2020/09/22 13:28:22
+[2020-09-22 13:29:40] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:29:40] 
+[2020-09-22 13:29:40] 2020/09/22 13:28:22
+[2020-09-22 13:29:40] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 13:29:42] [Osp]sock receive error, errno 10054
+[2020-09-22 13:29:42] Osp: node 51 (172.16.35.24) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 13:29:42] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 51
+[2020-09-22 13:29:42] [osp]: node(51) discon.reason is 3.
+[2020-09-22 13:29:42] 
+[2020-09-22 13:29:42] 2020/09/22 13:28:24
+[2020-09-22 13:29:42] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 51)
+[2020-09-22 13:29:42] 
+[2020-09-22 13:29:42] 2020/09/22 13:28:24
+[2020-09-22 13:29:42] [发送 CNS 消息]: ev_CnsDisconnect_Nty[3217].  bActiveExit:0
+[2020-09-22 13:29:47] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:29:52] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:29:52] 
+[2020-09-22 13:29:52] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:29:57] 
+[2020-09-22 13:29:57] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:29:57] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:02] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:02] 
+[2020-09-22 13:30:02] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:30:07] 
+[2020-09-22 13:30:07] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:30:07] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:12] 
+[2020-09-22 13:30:12] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:30:12] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:17] 
+[2020-09-22 13:30:17] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:30:17] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:20] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 52!
+[2020-09-22 13:30:20] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 52!
+[2020-09-22 13:30:20] 
+[2020-09-22 13:30:20] 2020/09/22 13:29:02
+[2020-09-22 13:30:20] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:30:20] 
+[2020-09-22 13:30:20] 2020/09/22 13:29:03
+[2020-09-22 13:30:20] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:30:20] Osp: node52 (172.16.35.24) disconnected by app.
+[2020-09-22 13:30:20] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 52
+[2020-09-22 13:30:20] [osp]: node(52) discon.reason is 4.
+[2020-09-22 13:30:20] 
+[2020-09-22 13:30:20] 2020/09/22 13:29:03
+[2020-09-22 13:30:20] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 52)
+[2020-09-22 13:30:22] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:22] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 53!
+[2020-09-22 13:30:22] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 53!
+[2020-09-22 13:30:22] 
+[2020-09-22 13:30:22] 2020/09/22 13:29:04
+[2020-09-22 13:30:22] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:30:22] 
+[2020-09-22 13:30:22] 2020/09/22 13:29:04
+[2020-09-22 13:30:22] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:30:22] Osp: node53 (172.16.35.24) disconnected by app.
+[2020-09-22 13:30:22] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 53
+[2020-09-22 13:30:22] [osp]: node(53) discon.reason is 4.
+[2020-09-22 13:30:22] 
+[2020-09-22 13:30:22] 2020/09/22 13:29:04
+[2020-09-22 13:30:22] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 53)
+[2020-09-22 13:30:27] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:27] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 54!
+[2020-09-22 13:30:27] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 54!
+[2020-09-22 13:30:27] 
+[2020-09-22 13:30:27] 2020/09/22 13:29:09
+[2020-09-22 13:30:27] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:30:27] 
+[2020-09-22 13:30:27] 2020/09/22 13:29:09
+[2020-09-22 13:30:27] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:30:27] Osp: node54 (172.16.35.24) disconnected by app.
+[2020-09-22 13:30:27] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 54
+[2020-09-22 13:30:27] [osp]: node(54) discon.reason is 4.
+[2020-09-22 13:30:27] 
+[2020-09-22 13:30:27] 2020/09/22 13:29:09
+[2020-09-22 13:30:27] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 54)
+[2020-09-22 13:30:32] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:32] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 55!
+[2020-09-22 13:30:32] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 55!
+[2020-09-22 13:30:32] 
+[2020-09-22 13:30:32] 2020/09/22 13:29:14
+[2020-09-22 13:30:32] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:30:32] 
+[2020-09-22 13:30:32] 2020/09/22 13:29:14
+[2020-09-22 13:30:32] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:30:32] Osp: node55 (172.16.35.24) disconnected by app.
+[2020-09-22 13:30:32] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 55
+[2020-09-22 13:30:32] [osp]: node(55) discon.reason is 4.
+[2020-09-22 13:30:32] 
+[2020-09-22 13:30:32] 2020/09/22 13:29:14
+[2020-09-22 13:30:32] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 55)
+[2020-09-22 13:30:37] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:37] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 56!
+[2020-09-22 13:30:37] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 56!
+[2020-09-22 13:30:37] 
+[2020-09-22 13:30:37] 2020/09/22 13:29:19
+[2020-09-22 13:30:37] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:30:37] 
+[2020-09-22 13:30:37] 2020/09/22 13:29:19
+[2020-09-22 13:30:37] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:30:37] Osp: node56 (172.16.35.24) disconnected by app.
+[2020-09-22 13:30:37] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 56
+[2020-09-22 13:30:37] [osp]: node(56) discon.reason is 4.
+[2020-09-22 13:30:37] 
+[2020-09-22 13:30:37] 2020/09/22 13:29:19
+[2020-09-22 13:30:37] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 56)
+[2020-09-22 13:30:42] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:42] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 57!
+[2020-09-22 13:30:42] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 57!
+[2020-09-22 13:30:42] 
+[2020-09-22 13:30:42] 2020/09/22 13:29:24
+[2020-09-22 13:30:42] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:30:42] 
+[2020-09-22 13:30:42] 2020/09/22 13:29:24
+[2020-09-22 13:30:42] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:30:42] Osp: node57 (172.16.35.24) disconnected by app.
+[2020-09-22 13:30:42] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 57
+[2020-09-22 13:30:42] [osp]: node(57) discon.reason is 4.
+[2020-09-22 13:30:42] 
+[2020-09-22 13:30:42] 2020/09/22 13:29:24
+[2020-09-22 13:30:42] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 57)
+[2020-09-22 13:30:47] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:47] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 58!
+[2020-09-22 13:30:47] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 58!
+[2020-09-22 13:30:47] 
+[2020-09-22 13:30:47] 2020/09/22 13:29:29
+[2020-09-22 13:30:47] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:30:47] 
+[2020-09-22 13:30:47] 2020/09/22 13:29:29
+[2020-09-22 13:30:47] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:30:47] Osp: node58 (172.16.35.24) disconnected by app.
+[2020-09-22 13:30:47] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 58
+[2020-09-22 13:30:47] [osp]: node(58) discon.reason is 4.
+[2020-09-22 13:30:47] 
+[2020-09-22 13:30:47] 2020/09/22 13:29:29
+[2020-09-22 13:30:47] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 58)
+[2020-09-22 13:30:52] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:52] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 59!
+[2020-09-22 13:30:52] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 59!
+[2020-09-22 13:30:52] 
+[2020-09-22 13:30:52] 2020/09/22 13:29:34
+[2020-09-22 13:30:52] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:30:52] 
+[2020-09-22 13:30:52] 2020/09/22 13:29:34
+[2020-09-22 13:30:52] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:30:52] Osp: node59 (172.16.35.24) disconnected by app.
+[2020-09-22 13:30:52] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 59
+[2020-09-22 13:30:52] [osp]: node(59) discon.reason is 4.
+[2020-09-22 13:30:52] 
+[2020-09-22 13:30:52] 2020/09/22 13:29:34
+[2020-09-22 13:30:52] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 59)
+[2020-09-22 13:30:57] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:30:57] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 60!
+[2020-09-22 13:30:57] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 60!
+[2020-09-22 13:30:57] 
+[2020-09-22 13:30:57] 2020/09/22 13:29:39
+[2020-09-22 13:30:57] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:31:00] Osp: node60 (172.16.35.24) disconnected by app.
+[2020-09-22 13:31:00] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 60
+[2020-09-22 13:31:00] 
+[2020-09-22 13:31:00] 2020/09/22 13:29:42
+[2020-09-22 13:31:00] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 60)
+[2020-09-22 13:31:00] [Osp]sock receive error, errno 10038
+[2020-09-22 13:31:00] [osp]: node(60) discon.reason is 4.
+[2020-09-22 13:31:00] Osp: node 60 (172.16.35.24) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 13:31:02] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:31:02] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 61!
+[2020-09-22 13:31:02] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 61!
+[2020-09-22 13:31:02] 
+[2020-09-22 13:31:02] 2020/09/22 13:29:44
+[2020-09-22 13:31:02] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:31:05] Osp: node61 (172.16.35.24) disconnected by app.
+[2020-09-22 13:31:05] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 61
+[2020-09-22 13:31:05] 
+[2020-09-22 13:31:05] 2020/09/22 13:29:47
+[2020-09-22 13:31:05] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 61)
+[2020-09-22 13:31:05] [Osp]sock receive error, errno 10038
+[2020-09-22 13:31:05] [osp]: node(61) discon.reason is 4.
+[2020-09-22 13:31:05] Osp: node 61 (172.16.35.24) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 13:31:07] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:31:07] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 62!
+[2020-09-22 13:31:07] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 62!
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 0 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 0 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:3587900000024 IP:0.0.0.0
+[2020-09-22 13:31:07] 
+[2020-09-22 13:31:07] 2020/09/22 13:29:50
+[2020-09-22 13:31:07] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:31:25] [Osp]sock receive error, errno 10054
+[2020-09-22 13:31:25] Osp: node 62 (172.16.35.24) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 13:31:25] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 62
+[2020-09-22 13:31:25] [osp]: node(62) discon.reason is 3.
+[2020-09-22 13:31:25] 
+[2020-09-22 13:31:25] 2020/09/22 13:30:07
+[2020-09-22 13:31:25] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 62)
+[2020-09-22 13:31:25] 
+[2020-09-22 13:31:25] 2020/09/22 13:30:07
+[2020-09-22 13:31:25] [发送 CNS 消息]: ev_CnsDisconnect_Nty[3217].  bActiveExit:0
+[2020-09-22 13:31:30] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:31:35] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:31:35] 
+[2020-09-22 13:31:35] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:31:40] 
+[2020-09-22 13:31:40] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:31:40] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:31:40] 
+[2020-09-22 13:31:40] 2020/09/22 13:30:23
+[2020-09-22 13:31:40] [收到 TPad 消息]: ev_CnsDisconnect_Nty[3217].  
+[2020-09-22 13:31:45] 
+[2020-09-22 13:31:45] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 13:33:32] Osp: connecting to 172.16.35.24@60002, please wait...
+[2020-09-22 13:33:32] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 63!
+[2020-09-22 13:33:32] Osp: connect to 172.16.35.24@60002 OK, the nodeid = 63!
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 0 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 0 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:3587900000024 IP:0.0.0.0
+[2020-09-22 13:33:32] 
+[2020-09-22 13:33:32] 2020/09/22 13:32:15
+[2020-09-22 13:33:32] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:33:47] 
+[2020-09-22 13:33:47] 2020/09/22 13:32:29
+[2020-09-22 13:33:47] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:33:47] 
+[2020-09-22 13:33:47] 2020/09/22 13:32:29
+[2020-09-22 13:33:47] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 13:33:47] 
+[2020-09-22 13:33:47] 2020/09/22 13:32:29
+[2020-09-22 13:33:47] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:33:47] 
+[2020-09-22 13:33:47] 2020/09/22 13:32:30
+[2020-09-22 13:33:47] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 13:33:52] 
+[2020-09-22 13:33:52] 2020/09/22 13:32:35
+[2020-09-22 13:33:52] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:33:53] 
+[2020-09-22 13:33:53] 2020/09/22 13:32:36
+[2020-09-22 13:33:53] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:33:54] 
+[2020-09-22 13:33:54] 2020/09/22 13:32:37
+[2020-09-22 13:33:54] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:33:55] 
+[2020-09-22 13:33:55] 2020/09/22 13:32:38
+[2020-09-22 13:33:55] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:33:56] 
+[2020-09-22 13:33:56] 2020/09/22 13:32:39
+[2020-09-22 13:33:56] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:33:59] 
+[2020-09-22 13:33:59] 2020/09/22 13:32:42
+[2020-09-22 13:33:59] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 13:35:01] 
+[2020-09-22 13:35:01] 2020/09/22 13:33:44
+[2020-09-22 13:35:01] [收到 TPad 消息]: ev_CncWantDisconnect_Nty[3219].  
+[2020-09-22 13:35:01] Osp: node63 (172.16.35.24) disconnected by app.
+[2020-09-22 13:35:01] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 63
+[2020-09-22 13:35:01] 
+[2020-09-22 13:35:01] 2020/09/22 13:33:44
+[2020-09-22 13:35:01] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 63)
+[2020-09-22 13:35:01] [Osp]sock receive error, errno 10038
+[2020-09-22 13:35:01] [osp]: node(63) discon.reason is 4.
+[2020-09-22 13:35:01] Osp: node 63 (172.16.35.24) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 13:35:01] 
+[2020-09-22 13:35:01] 2020/09/22 13:33:44
+[2020-09-22 13:35:01] [发送 CNS 消息]: ev_CnsDisconnect_Nty[3217].  bActiveExit:1
+[2020-09-22 13:35:05] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 13:35:05] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 64!
+[2020-09-22 13:35:05] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 64!
+[2020-09-22 13:35:05] 
+[2020-09-22 13:35:05] 2020/09/22 13:33:48
+[2020-09-22 13:35:05] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:33:48
+[2020-09-22 13:35:06] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:33:48
+[2020-09-22 13:35:06] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:35:06
+[2020-09-22 13:35:06] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:35:06
+[2020-09-22 13:35:06] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:35:06
+[2020-09-22 13:35:06] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:35:06
+[2020-09-22 13:35:06] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:35:06
+[2020-09-22 13:35:06] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:35:06
+[2020-09-22 13:35:06] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:新硬件2次改版设备3527 IP:0.0.0.0
+[2020-09-22 13:35:06] 
+[2020-09-22 13:35:06] 2020/09/22 13:35:06
+[2020-09-22 13:35:06] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<1, 1, 1, 0>, bIsCheckSuc:1, bIsShowErr:0
+[2020-09-22 13:38:09] 
+[2020-09-22 13:38:09] 2020/09/22 13:38:08
+[2020-09-22 13:38:09] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:38:10] 
+[2020-09-22 13:38:10] 2020/09/22 13:38:10
+[2020-09-22 13:38:10] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 13:38:10] 
+[2020-09-22 13:38:10] 2020/09/22 13:38:10
+[2020-09-22 13:38:10] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 13:38:45] 
+[2020-09-22 13:38:45] 2020/09/22 13:38:45
+[2020-09-22 13:38:45] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 13:38:46] 
+[2020-09-22 13:38:46] 2020/09/22 13:38:45
+[2020-09-22 13:38:46] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 13:38:46] 
+[2020-09-22 13:38:46] 2020/09/22 13:38:45
+[2020-09-22 13:38:46] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 13:38:46] 
+[2020-09-22 13:38:46] 2020/09/22 13:38:45
+[2020-09-22 13:38:46] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 13:46:54] 
+[2020-09-22 13:46:54] 2020/09/22 13:46:44
+[2020-09-22 13:46:54] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:46:54] 
+[2020-09-22 13:46:54] 2020/09/22 13:46:44
+[2020-09-22 13:46:54] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 13:46:54] 
+[2020-09-22 13:46:54] 2020/09/22 13:46:44
+[2020-09-22 13:46:54] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 14:10:34] 
+[2020-09-22 14:10:34] 2020/09/22 14:10:29
+[2020-09-22 14:10:34] [收到 CNS 消息]: ev_CnSetFtp_Rsp[43685].  bSuccess:1
+[2020-09-22 14:10:56] 
+[2020-09-22 14:10:56] 2020/09/22 14:10:51
+[2020-09-22 14:10:56] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:T300E终端_35192出现音视频故障，运维人员正在检修请稍后。
+[2020-09-22 14:11:15] 
+[2020-09-22 14:11:15] 2020/09/22 14:11:09
+[2020-09-22 14:11:15] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:T300E终端_35192出现音视频故障，运维人员正在检修请稍后。
+[2020-09-22 14:18:31] 
+[2020-09-22 14:20:08] tpad->
+[2020-09-22 14:20:08] 2020/09/22 14:20:03
+[2020-09-22 14:20:08] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 0 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 0 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 14:20:08] 
+[2020-09-22 14:20:08] 2020/09/22 14:20:03
+[2020-09-22 14:20:08] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 14:20:08] 
+[2020-09-22 14:20:08] 2020/09/22 14:20:03
+[2020-09-22 14:20:08] [收到 CNS 消息]: ev_tpp_LeaveWBConf_Nty[43073].  网呈会议结束，离开数据会议的IP：0.0.0.0
+[2020-09-22 14:20:22] 
+[2020-09-22 14:20:22] *********************************************************************
+[2020-09-22 14:20:22] Osp: current time and date:		Tue Sep 22 14:20:17 2020
+[2020-09-22 14:20:22] Osp version: OSP.1.8.0.20140303  compile time: Apr 16 2015 10:57:03
+[2020-09-22 14:20:22] 
+[2020-09-22 14:20:22] *********************************************************************
+[2020-09-22 14:21:08] 
+[2020-09-22 14:21:08] 2020/09/22 14:21:03
+[2020-09-22 14:21:08] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 14:21:08] 
+[2020-09-22 14:21:08] 2020/09/22 14:21:03
+[2020-09-22 14:21:08] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 14:21:09] 
+[2020-09-22 14:21:09] 2020/09/22 14:21:04
+[2020-09-22 14:21:09] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 14:55:55] 
+[2020-09-22 14:55:55] 2020/09/22 14:55:51
+[2020-09-22 14:55:55] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 0 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 0 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 14:55:55] 
+[2020-09-22 14:55:55] 2020/09/22 14:55:51
+[2020-09-22 14:55:55] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 14:55:55] 
+[2020-09-22 14:55:55] 2020/09/22 14:55:51
+[2020-09-22 14:55:55] [收到 CNS 消息]: ev_tpp_LeaveWBConf_Nty[43073].  网呈会议结束，离开数据会议的IP：0.0.0.0
+[2020-09-22 14:57:34] 
+[2020-09-22 14:57:34] 2020/09/22 14:57:29
+[2020-09-22 14:57:34] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 14:57:34] 
+[2020-09-22 14:57:34] 2020/09/22 14:57:29
+[2020-09-22 14:57:34] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 14:57:35] 
+[2020-09-22 14:57:35] 2020/09/22 14:57:30
+[2020-09-22 14:57:35] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 14:57:35] 
+[2020-09-22 14:57:35] 2020/09/22 14:57:31
+[2020-09-22 14:57:35] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 15:08:31] 
+[2020-09-22 15:17:20] tpad->
+[2020-09-22 15:17:20] 2020/09/22 15:17:15
+[2020-09-22 15:17:20] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 15:17:21] 
+[2020-09-22 15:17:21] 2020/09/22 15:17:17
+[2020-09-22 15:17:21] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 15:17:21] 
+[2020-09-22 15:17:21] 2020/09/22 15:17:17
+[2020-09-22 15:17:21] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 15:17:21] 
+[2020-09-22 15:17:21] 2020/09/22 15:17:17
+[2020-09-22 15:17:21] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 15:18:07] 
+[2020-09-22 15:18:07] 2020/09/22 15:18:02
+[2020-09-22 15:18:07] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 15:18:07] 
+[2020-09-22 15:18:07] 2020/09/22 15:18:02
+[2020-09-22 15:18:07] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 15:18:07] 
+[2020-09-22 15:18:07] 2020/09/22 15:18:02
+[2020-09-22 15:18:07] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 15:18:07] 
+[2020-09-22 15:18:07] 2020/09/22 15:18:02
+[2020-09-22 15:18:07] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:1
+[2020-09-22 15:20:23] 
+[2020-09-22 15:20:23] *********************************************************************
+[2020-09-22 15:20:23] Osp: current time and date:		Tue Sep 22 15:20:18 2020
+[2020-09-22 15:20:23] Osp version: OSP.1.8.0.20140303  compile time: Apr 16 2015 10:57:03
+[2020-09-22 15:20:23] 
+[2020-09-22 15:20:23] *********************************************************************
+[2020-09-22 15:36:48] 
+[2020-09-22 15:36:48] 2020/09/22 15:36:44
+[2020-09-22 15:36:48] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 15:36:49] 
+[2020-09-22 15:36:49] 2020/09/22 15:36:44
+[2020-09-22 15:36:49] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 15:36:49] 
+[2020-09-22 15:36:49] 2020/09/22 15:36:44
+[2020-09-22 15:36:49] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 15:36:49] 
+[2020-09-22 15:36:49] 2020/09/22 15:36:44
+[2020-09-22 15:36:49] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 15:43:19] 
+[2020-09-22 15:43:19] 2020/09/22 15:43:14
+[2020-09-22 15:43:19] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 15:43:31] 
+[2020-09-22 15:43:31] 2020/09/22 15:43:26
+[2020-09-22 15:43:31] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 15:43:31] 
+[2020-09-22 15:43:31] 2020/09/22 15:43:26
+[2020-09-22 15:43:31] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 15:43:31] 
+[2020-09-22 15:43:31] 2020/09/22 15:43:26
+[2020-09-22 15:43:31] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 15:43:31] 
+[2020-09-22 15:43:31] 2020/09/22 15:43:26
+[2020-09-22 15:43:31] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 15:43:36] 
+[2020-09-22 15:43:36] 2020/09/22 15:43:31
+[2020-09-22 15:43:36] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 15:43:36] 
+[2020-09-22 15:43:36] 2020/09/22 15:43:32
+[2020-09-22 15:43:36] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 15:43:36] 
+[2020-09-22 15:43:36] 2020/09/22 15:43:32
+[2020-09-22 15:43:36] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 15:43:36] 
+[2020-09-22 15:43:36] 2020/09/22 15:43:32
+[2020-09-22 15:43:36] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 15:43:56] 
+[2020-09-22 15:43:56] 2020/09/22 15:43:51
+[2020-09-22 15:43:56] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 15:43:56] 
+[2020-09-22 15:43:56] 2020/09/22 15:43:52
+[2020-09-22 15:43:56] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 15:43:56] 
+[2020-09-22 15:43:56] 2020/09/22 15:43:52
+[2020-09-22 15:43:56] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 15:51:07] 
+[2020-09-22 15:51:07] 2020/09/22 15:51:03
+[2020-09-22 15:51:07] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 15:51:07] 
+[2020-09-22 15:51:07] 2020/09/22 15:51:03
+[2020-09-22 15:51:07] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 15:51:07] 
+[2020-09-22 15:51:07] 2020/09/22 15:51:03
+[2020-09-22 15:51:07] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 15:51:07] 
+[2020-09-22 15:51:07] 2020/09/22 15:51:03
+[2020-09-22 15:51:07] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:1
+[2020-09-22 15:57:30] [CncLib]: 消息:ev_tppSndKeyFrame_Req(42411)被抛弃,因为没有找到匹配的消息处理器.
+[2020-09-22 15:57:31] [CncLib]: 消息:ev_tppSndKeyFrame_Req(42411)被抛弃,因为没有找到匹配的消息处理器.
+[2020-09-22 15:59:31] 
+[2020-09-22 16:09:11] tpad->
+[2020-09-22 16:09:11] 2020/09/22 16:09:07
+[2020-09-22 16:09:11] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:09:11] 
+[2020-09-22 16:10:11] 
+[2020-09-22 16:10:11] 2020/09/22 16:10:08
+[2020-09-22 16:10:11] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:10:11] 
+[2020-09-22 16:11:12] 
+[2020-09-22 16:11:12] 2020/09/22 16:11:09
+[2020-09-22 16:11:12] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:11:12] 
+[2020-09-22 16:12:13] 
+[2020-09-22 16:12:13] 2020/09/22 16:12:10
+[2020-09-22 16:12:13] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:12:13] 
+[2020-09-22 16:13:14] 
+[2020-09-22 16:13:14] 2020/09/22 16:13:11
+[2020-09-22 16:13:14] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:13:14] 
+[2020-09-22 16:14:15] 
+[2020-09-22 16:14:15] 2020/09/22 16:14:12
+[2020-09-22 16:14:15] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:14:15] 
+[2020-09-22 16:15:16] 
+[2020-09-22 16:15:16] 2020/09/22 16:15:13
+[2020-09-22 16:15:16] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:15:16] 
+[2020-09-22 16:16:17] 
+[2020-09-22 16:16:17] 2020/09/22 16:16:13
+[2020-09-22 16:16:17] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:16:17] 
+[2020-09-22 16:17:17] 
+[2020-09-22 16:17:18] 2020/09/22 16:17:14
+[2020-09-22 16:17:18] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:17:18] 
+[2020-09-22 16:18:18] 
+[2020-09-22 16:18:18] 2020/09/22 16:18:15
+[2020-09-22 16:18:18] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:18:18] 
+[2020-09-22 16:19:19] 
+[2020-09-22 16:19:19] 2020/09/22 16:19:16
+[2020-09-22 16:19:19] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 16:19:19] 
+[2020-09-22 16:19:53] 
+[2020-09-22 16:19:53] 2020/09/22 16:19:50
+[2020-09-22 16:19:53] [收到 TPad 消息]: ev_CncWantDisconnect_Nty[3219].  
+[2020-09-22 16:19:53] Osp: node64 (172.16.35.27) disconnected by app.
+[2020-09-22 16:19:53] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 64
+[2020-09-22 16:19:53] 
+[2020-09-22 16:19:53] 2020/09/22 16:19:50
+[2020-09-22 16:19:53] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 64)
+[2020-09-22 16:19:53] [osp]: node(64) discon.reason is 4.
+[2020-09-22 16:19:53] 
+[2020-09-22 16:19:53] 2020/09/22 16:19:50
+[2020-09-22 16:19:53] [发送 CNS 消息]: ev_CnsDisconnect_Nty[3217].  bActiveExit:1
+[2020-09-22 16:19:59] Osp: connecting to 172.16.35.192@60002, please wait...
+[2020-09-22 16:19:59] Osp: connect to 172.16.35.192@60002 OK, the nodeid = 65!
+[2020-09-22 16:19:59] Osp: connect to 172.16.35.192@60002 OK, the nodeid = 65!
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:55
+[2020-09-22 16:19:59] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:55
+[2020-09-22 16:19:59] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:55
+[2020-09-22 16:19:59] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:59
+[2020-09-22 16:19:59] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:59
+[2020-09-22 16:19:59] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:59
+[2020-09-22 16:19:59] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:1
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:59
+[2020-09-22 16:19:59] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:59
+[2020-09-22 16:19:59] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:59
+[2020-09-22 16:19:59] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 16:19:59] 
+[2020-09-22 16:19:59] 2020/09/22 16:19:59
+[2020-09-22 16:19:59] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:T300E终端_35192 IP:0.0.0.0
+[2020-09-22 16:20:00] 
+[2020-09-22 16:20:00] 2020/09/22 16:19:59
+[2020-09-22 16:20:00] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:0, m_abHaveSrc:<1, 1, 1, 1>, bIsCheckSuc:1, bIsShowErr:0
+[2020-09-22 16:20:23] 
+[2020-09-22 16:20:23] *********************************************************************
+[2020-09-22 16:20:23] Osp: current time and date:		Tue Sep 22 16:20:22 2020
+[2020-09-22 16:20:23] Osp version: OSP.1.8.0.20140303  compile time: Apr 16 2015 10:57:03
+[2020-09-22 16:20:23] 
+[2020-09-22 16:20:23] *********************************************************************
+[2020-09-22 16:23:01] 
+[2020-09-22 16:23:01] 2020/09/22 16:23:01
+[2020-09-22 16:23:01] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 16:23:02] 
+[2020-09-22 16:23:02] 2020/09/22 16:23:02
+[2020-09-22 16:23:02] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 16:23:02] 
+[2020-09-22 16:23:02] 2020/09/22 16:23:02
+[2020-09-22 16:23:02] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 16:23:02] 
+[2020-09-22 16:23:02] 2020/09/22 16:23:02
+[2020-09-22 16:23:02] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 16:23:02] 
+[2020-09-22 16:23:02] 2020/09/22 16:23:02
+[2020-09-22 16:23:02] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 16:23:37] 
+[2020-09-22 16:23:37] 2020/09/22 16:23:41
+[2020-09-22 16:23:37] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 16:23:37] 
+[2020-09-22 16:23:38] 2020/09/22 16:23:41
+[2020-09-22 16:23:38] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 16:23:38] 
+[2020-09-22 16:23:38] 2020/09/22 16:23:41
+[2020-09-22 16:23:38] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 16:23:38] 
+[2020-09-22 16:23:38] 2020/09/22 16:23:41
+[2020-09-22 16:23:38] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 16:23:38] 
+[2020-09-22 16:23:38] 2020/09/22 16:23:41
+[2020-09-22 16:23:38] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 16:28:14] 
+[2020-09-22 16:28:14] 2020/09/22 16:28:18
+[2020-09-22 16:28:14] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 16:28:15] 
+[2020-09-22 16:28:15] 2020/09/22 16:28:18
+[2020-09-22 16:28:15] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 16:28:15] 
+[2020-09-22 16:28:15] 2020/09/22 16:28:18
+[2020-09-22 16:28:15] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 16:30:48] 
+[2020-09-22 16:30:48] 2020/09/22 16:30:52
+[2020-09-22 16:30:48] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 16:32:43] 
+[2020-09-22 16:32:43] 2020/09/22 16:32:47
+[2020-09-22 16:32:43] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 16:32:44] 
+[2020-09-22 16:32:44] 2020/09/22 16:32:47
+[2020-09-22 16:32:44] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 16:32:44] 
+[2020-09-22 16:32:44] 2020/09/22 16:32:47
+[2020-09-22 16:32:44] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 16:49:26] 
+[2020-09-22 17:19:04] tpad->
+[2020-09-22 17:19:04] *********************************************************************
+[2020-09-22 17:19:04] Osp: current time and date:		Tue Sep 22 17:20:24 2020
+[2020-09-22 17:19:04] Osp version: OSP.1.8.0.20140303  compile time: Apr 16 2015 10:57:03
+[2020-09-22 17:19:04] 
+[2020-09-22 17:19:04] *********************************************************************
+[2020-09-22 17:22:58] 
+[2020-09-22 17:22:58] 2020/09/22 17:24:18
+[2020-09-22 17:22:58] [收到 TPad 消息]: ev_CncWantDisconnect_Nty[3219].  
+[2020-09-22 17:22:58] Osp: node65 (172.16.35.192) disconnected by app.
+[2020-09-22 17:22:58] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 65
+[2020-09-22 17:22:58] 
+[2020-09-22 17:22:58] 2020/09/22 17:24:18
+[2020-09-22 17:22:58] [收到 CNS 消息]: OSP_DISCONNECT[262].  [osp]: node(65) discon.reason is 4.
+[2020-09-22 17:22:58] Link Break (NodeID: 65)
+[2020-09-22 17:22:58] 
+[2020-09-22 17:22:58] 2020/09/22 17:24:18
+[2020-09-22 17:22:58] [发送 CNS 消息]: ev_CnsDisconnect_Nty[3217].  bActiveExit:1
+[2020-09-22 17:23:01] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 17:23:01] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 66!
+[2020-09-22 17:23:01] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 66!
+[2020-09-22 17:23:01] 
+[2020-09-22 17:23:01] 2020/09/22 17:24:22
+[2020-09-22 17:23:01] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:22
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:22
+[2020-09-22 17:23:02] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:19
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:19
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:19
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:1
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:19
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:19
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:19
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:19
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:新硬件2次改版设备3527 IP:0.0.0.0
+[2020-09-22 17:23:02] 
+[2020-09-22 17:23:02] 2020/09/22 17:24:19
+[2020-09-22 17:23:02] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:0, m_abHaveSrc:<1, 1, 1, 1>, bIsCheckSuc:1, bIsShowErr:0
+[2020-09-22 17:23:33] 
+[2020-09-22 17:23:33] 2020/09/22 17:24:50
+[2020-09-22 17:23:33] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:23:33] 
+[2020-09-22 17:23:42] 
+[2020-09-22 17:23:43] 2020/09/22 17:24:59
+[2020-09-22 17:23:43] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 17:23:43] 
+[2020-09-22 17:23:43] 2020/09/22 17:24:59
+[2020-09-22 17:23:43] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 17:23:43] 
+[2020-09-22 17:23:43] 2020/09/22 17:24:59
+[2020-09-22 17:23:43] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:23:43] 
+[2020-09-22 17:23:43] 2020/09/22 17:24:59
+[2020-09-22 17:23:43] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:1
+[2020-09-22 17:24:02] 
+[2020-09-22 17:24:02] 2020/09/22 17:25:18
+[2020-09-22 17:24:02] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:24:03] 
+[2020-09-22 17:24:03] 2020/09/22 17:25:20
+[2020-09-22 17:24:03] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 17:24:03] 
+[2020-09-22 17:24:03] 2020/09/22 17:25:20
+[2020-09-22 17:24:03] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 17:24:03] 
+[2020-09-22 17:24:03] 2020/09/22 17:25:20
+[2020-09-22 17:24:03] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 17:24:33] 
+[2020-09-22 17:24:33] 2020/09/22 17:25:50
+[2020-09-22 17:24:33] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:24:33] 
+[2020-09-22 17:24:44] 
+[2020-09-22 17:24:45] 2020/09/22 17:26:01
+[2020-09-22 17:24:45] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:24:45] 
+[2020-09-22 17:24:45] 2020/09/22 17:26:02
+[2020-09-22 17:24:45] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:24:45] 
+[2020-09-22 17:24:45] 2020/09/22 17:26:02
+[2020-09-22 17:24:45] [收到 CNS 消息]: ev_CnConfState_Nty[42582].  TTPCnsConfStatus: ConfName: , ConfID: 65535, State: 2 													(0:em_CALL_IDLE, 1:em_CALL_CALLING, 2:em_CALL_CONNECTED),	     ConfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 17:24:45] 
+[2020-09-22 17:24:45] 2020/09/22 17:26:02
+[2020-09-22 17:24:45] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 17:25:05] [CncLib]: 消息:ev_tppSndKeyFrame_Req(42411)被抛弃,因为没有找到匹配的消息处理器.
+[2020-09-22 17:25:34] 
+[2020-09-22 17:25:34] 2020/09/22 17:26:51
+[2020-09-22 17:25:34] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:25:34] 
+[2020-09-22 17:26:35] 
+[2020-09-22 17:26:35] 2020/09/22 17:27:52
+[2020-09-22 17:26:35] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:26:35] 
+[2020-09-22 17:27:36] 
+[2020-09-22 17:27:36] 2020/09/22 17:28:53
+[2020-09-22 17:27:36] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:27:36] 
+[2020-09-22 17:28:37] 
+[2020-09-22 17:28:37] 2020/09/22 17:29:54
+[2020-09-22 17:28:37] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:28:37] 
+[2020-09-22 17:29:07] 
+[2020-09-22 17:29:07] 2020/09/22 17:30:24
+[2020-09-22 17:29:07] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:29:08] 
+[2020-09-22 17:29:08] 2020/09/22 17:30:25
+[2020-09-22 17:29:08] onfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 17:29:08] 
+[2020-09-22 17:29:08] 2020/09/22 17:30:25
+[2020-09-22 17:29:08] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 17:29:08] 
+[2020-09-22 17:29:08] 2020/09/22 17:30:25
+[2020-09-22 17:29:08] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 17:29:10] 
+[2020-09-22 17:29:10] 2020/09/22 17:30:27
+[2020-09-22 17:29:10] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:29:11] 
+[2020-09-22 17:29:11] 2020/09/22 17:30:27
+[2020-09-22 17:29:11] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:29:11] 
+[2020-09-22 17:29:11] 2020/09/22 17:30:27
+[2020-09-22 17:29:11] onfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 17:29:11] 
+[2020-09-22 17:29:11] 2020/09/22 17:30:27
+[2020-09-22 17:29:11] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 17:29:38] 
+[2020-09-22 17:29:38] 2020/09/22 17:30:55
+[2020-09-22 17:29:38] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:29:38] 
+[2020-09-22 17:30:17] 
+[2020-09-22 17:30:17] 2020/09/22 17:31:33
+[2020-09-22 17:30:17] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 17:30:19] 
+[2020-09-22 17:30:19] 2020/09/22 17:31:36
+[2020-09-22 17:30:19] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:30:20] 
+[2020-09-22 17:30:20] 2020/09/22 17:31:37
+[2020-09-22 17:30:20] onfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 17:30:20] 
+[2020-09-22 17:30:21] 2020/09/22 17:31:37
+[2020-09-22 17:30:21] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 17:30:21] 
+[2020-09-22 17:30:21] 2020/09/22 17:31:37
+[2020-09-22 17:30:21] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 1, Inst: 1 
+[2020-09-22 17:30:27] 
+[2020-09-22 17:30:27] 2020/09/22 17:31:43
+[2020-09-22 17:30:27] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:30:27] 
+[2020-09-22 17:30:27] 2020/09/22 17:31:44
+[2020-09-22 17:30:27] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 17:30:27] 
+[2020-09-22 17:30:27] 2020/09/22 17:31:44
+[2020-09-22 17:30:27] onfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 17:30:27] 
+[2020-09-22 17:30:27] 2020/09/22 17:31:44
+[2020-09-22 17:30:27] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 17:30:39] 
+[2020-09-22 17:30:39] 2020/09/22 17:31:55
+[2020-09-22 17:30:39] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:30:39] 
+[2020-09-22 17:31:40] 
+[2020-09-22 17:31:40] 2020/09/22 17:32:56
+[2020-09-22 17:31:40] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:31:40] 
+[2020-09-22 17:32:40] 
+[2020-09-22 17:32:40] 2020/09/22 17:33:57
+[2020-09-22 17:32:40] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:32:40] 
+[2020-09-22 17:33:41] 
+[2020-09-22 17:33:41] 2020/09/22 17:34:58
+[2020-09-22 17:33:41] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:33:41] 
+[2020-09-22 17:34:42] 
+[2020-09-22 17:34:42] 2020/09/22 17:35:59
+[2020-09-22 17:34:42] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:34:42] 
+[2020-09-22 17:35:43] 
+[2020-09-22 17:35:43] 2020/09/22 17:37:00
+[2020-09-22 17:35:43] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:35:43] 
+[2020-09-22 17:36:44] 
+[2020-09-22 17:36:44] 2020/09/22 17:38:00
+[2020-09-22 17:36:44] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:36:44] 
+[2020-09-22 17:37:44] 
+[2020-09-22 17:37:44] 2020/09/22 17:39:01
+[2020-09-22 17:37:44] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:37:44] 
+[2020-09-22 17:38:45] 
+[2020-09-22 17:38:45] 2020/09/22 17:40:02
+[2020-09-22 17:38:45] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:38:45] 
+[2020-09-22 17:39:09] 
+[2020-09-22 17:39:46] tpad->
+[2020-09-22 17:39:46] 2020/09/22 17:41:03
+[2020-09-22 17:39:46] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:39:46] 
+[2020-09-22 17:40:47] 
+[2020-09-22 17:40:47] 2020/09/22 17:42:04
+[2020-09-22 17:40:47] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:40:47] 
+[2020-09-22 17:41:48] 
+[2020-09-22 17:41:48] 2020/09/22 17:43:05
+[2020-09-22 17:41:48] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:41:48] 
+[2020-09-22 17:42:49] 
+[2020-09-22 17:42:49] 2020/09/22 17:44:05
+[2020-09-22 17:42:49] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:42:49] 
+[2020-09-22 17:43:49] 
+[2020-09-22 17:43:50] 2020/09/22 17:45:06
+[2020-09-22 17:43:50] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:43:50] 
+[2020-09-22 17:44:51] 
+[2020-09-22 17:44:51] 2020/09/22 17:46:07
+[2020-09-22 17:44:51] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:44:51] 
+[2020-09-22 17:45:51] 
+[2020-09-22 17:45:51] 2020/09/22 17:47:08
+[2020-09-22 17:45:51] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:45:51] 
+[2020-09-22 17:46:52] 
+[2020-09-22 17:46:52] 2020/09/22 17:48:09
+[2020-09-22 17:46:52] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:46:52] 
+[2020-09-22 17:47:53] 
+[2020-09-22 17:47:53] 2020/09/22 17:49:10
+[2020-09-22 17:47:53] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:47:53] 
+[2020-09-22 17:48:54] 
+[2020-09-22 17:48:54] 2020/09/22 17:50:10
+[2020-09-22 17:48:54] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:48:54] 
+[2020-09-22 17:49:55] 
+[2020-09-22 17:49:55] 2020/09/22 17:51:11
+[2020-09-22 17:49:55] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:49:55] 
+[2020-09-22 17:50:55] 
+[2020-09-22 17:50:55] 2020/09/22 17:52:12
+[2020-09-22 17:50:55] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:50:55] 
+[2020-09-22 17:51:56] 
+[2020-09-22 17:51:56] 2020/09/22 17:53:13
+[2020-09-22 17:51:56] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:51:56] 
+[2020-09-22 17:52:57] 
+[2020-09-22 17:52:57] 2020/09/22 17:54:13
+[2020-09-22 17:52:57] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:52:57] 
+[2020-09-22 17:53:57] 
+[2020-09-22 17:53:57] 2020/09/22 17:55:14
+[2020-09-22 17:53:57] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:53:57] 
+[2020-09-22 17:54:58] 
+[2020-09-22 17:54:58] 2020/09/22 17:56:15
+[2020-09-22 17:54:58] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:54:58] 
+[2020-09-22 17:55:59] 
+[2020-09-22 17:55:59] 2020/09/22 17:57:16
+[2020-09-22 17:55:59] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:55:59] 
+[2020-09-22 17:57:00] 
+[2020-09-22 17:57:00] 2020/09/22 17:58:16
+[2020-09-22 17:57:00] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:57:00] 
+[2020-09-22 17:58:00] 
+[2020-09-22 17:58:00] 2020/09/22 17:59:17
+[2020-09-22 17:58:00] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:58:00] 
+[2020-09-22 17:59:01] 
+[2020-09-22 17:59:01] 2020/09/22 18:00:18
+[2020-09-22 17:59:01] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 17:59:01] 
+[2020-09-22 18:00:02] 
+[2020-09-22 18:00:02] 2020/09/22 18:01:19
+[2020-09-22 18:00:02] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:00:02] 
+[2020-09-22 18:01:03] 
+[2020-09-22 18:01:03] 2020/09/22 18:02:20
+[2020-09-22 18:01:03] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:01:03] 
+[2020-09-22 18:02:04] 
+[2020-09-22 18:02:04] 2020/09/22 18:03:20
+[2020-09-22 18:02:04] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:02:04] 
+[2020-09-22 18:03:04] 
+[2020-09-22 18:03:04] 2020/09/22 18:04:21
+[2020-09-22 18:03:04] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:03:04] 
+[2020-09-22 18:04:06] 
+[2020-09-22 18:04:06] 2020/09/22 18:05:22
+[2020-09-22 18:04:06] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:04:06] 
+[2020-09-22 18:05:11] 
+[2020-09-22 18:05:11] 2020/09/22 18:06:23
+[2020-09-22 18:05:11] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:05:11] 
+[2020-09-22 18:06:16] 
+[2020-09-22 18:06:16] 2020/09/22 18:07:24
+[2020-09-22 18:06:16] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:06:16] 
+[2020-09-22 18:07:08] 
+[2020-09-22 18:07:08] 2020/09/22 18:08:25
+[2020-09-22 18:07:08] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:07:08] 
+[2020-09-22 18:08:09] 
+[2020-09-22 18:08:09] 2020/09/22 18:09:25
+[2020-09-22 18:08:09] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:08:09] 
+[2020-09-22 18:09:09] 
+[2020-09-22 18:09:09] 2020/09/22 18:10:26
+[2020-09-22 18:09:09] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:09:09] 
+[2020-09-22 18:10:10] 
+[2020-09-22 18:10:10] 2020/09/22 18:11:27
+[2020-09-22 18:10:10] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:10:10] 
+[2020-09-22 18:11:11] 
+[2020-09-22 18:11:11] 2020/09/22 18:12:28
+[2020-09-22 18:11:11] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:11:11] 
+[2020-09-22 18:12:12] 
+[2020-09-22 18:12:12] 2020/09/22 18:13:29
+[2020-09-22 18:12:12] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:12:12] 
+[2020-09-22 18:13:13] 
+[2020-09-22 18:13:13] 2020/09/22 18:14:30
+[2020-09-22 18:13:13] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:13:13] 
+[2020-09-22 18:14:14] 
+[2020-09-22 18:14:14] 2020/09/22 18:15:31
+[2020-09-22 18:14:14] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:14:14] 
+[2020-09-22 18:15:15] 
+[2020-09-22 18:15:15] 2020/09/22 18:16:32
+[2020-09-22 18:15:15] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:15:15] 
+[2020-09-22 18:16:16] 
+[2020-09-22 18:16:16] 2020/09/22 18:17:32
+[2020-09-22 18:16:16] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:16:16] 
+[2020-09-22 18:17:17] 
+[2020-09-22 18:17:17] 2020/09/22 18:18:33
+[2020-09-22 18:17:17] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:17:17] 
+[2020-09-22 18:18:17] 
+[2020-09-22 18:18:17] 2020/09/22 18:19:34
+[2020-09-22 18:18:17] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:18:17] 
+[2020-09-22 18:19:05] 
+[2020-09-22 18:19:05] *********************************************************************
+[2020-09-22 18:19:05] Osp: current time and date:		Tue Sep 22 18:20:21 2020
+[2020-09-22 18:19:05] Osp version: OSP.1.8.0.20140303  compile time: Apr 16 2015 10:57:03
+[2020-09-22 18:19:05] 
+[2020-09-22 18:19:05] *********************************************************************
+[2020-09-22 18:19:18] 
+[2020-09-22 18:19:18] 2020/09/22 18:20:35
+[2020-09-22 18:19:18] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:19:18] 
+[2020-09-22 18:20:19] 
+[2020-09-22 18:20:19] 2020/09/22 18:21:36
+[2020-09-22 18:20:19] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:20:19] 
+[2020-09-22 18:21:20] 
+[2020-09-22 18:21:20] 2020/09/22 18:22:36
+[2020-09-22 18:21:20] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:21:20] 
+[2020-09-22 18:22:20] 
+[2020-09-22 18:22:20] 2020/09/22 18:23:37
+[2020-09-22 18:22:20] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:22:20] 
+[2020-09-22 18:23:21] 
+[2020-09-22 18:23:21] 2020/09/22 18:24:38
+[2020-09-22 18:23:21] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:23:21] 
+[2020-09-22 18:24:22] 
+[2020-09-22 18:24:22] 2020/09/22 18:25:39
+[2020-09-22 18:24:22] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:24:22] 
+[2020-09-22 18:25:23] 
+[2020-09-22 18:25:23] 2020/09/22 18:26:39
+[2020-09-22 18:25:23] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:25:23] 
+[2020-09-22 18:26:23] 
+[2020-09-22 18:26:23] 2020/09/22 18:27:40
+[2020-09-22 18:26:23] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:26:23] 
+[2020-09-22 18:27:24] 
+[2020-09-22 18:27:24] 2020/09/22 18:28:41
+[2020-09-22 18:27:24] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:27:24] 
+[2020-09-22 18:28:25] 
+[2020-09-22 18:28:25] 2020/09/22 18:29:42
+[2020-09-22 18:28:25] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:28:25] 
+[2020-09-22 18:29:09] 
+[2020-09-22 18:29:26] tpad->
+[2020-09-22 18:29:26] 2020/09/22 18:30:43
+[2020-09-22 18:29:26] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:29:26] 
+[2020-09-22 18:30:27] 
+[2020-09-22 18:30:27] 2020/09/22 18:31:44
+[2020-09-22 18:30:27] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:30:27] 
+[2020-09-22 18:30:32] 
+[2020-09-22 18:30:32] 2020/09/22 18:31:49
+[2020-09-22 18:30:32] [收到 CNS 消息]: ev_CNSLoginByOther_Notify[43057].  抢登通知(抢占方IP: 172.16.35.113)
+[2020-09-22 18:31:50] [Osp]sock receive error, errno 10054
+[2020-09-22 18:31:50] Osp: node 66 (172.16.35.27) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 18:31:50] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 66
+[2020-09-22 18:31:50] [osp]: node(66) discon.reason is 3.
+[2020-09-22 18:31:50] 
+[2020-09-22 18:31:50] 2020/09/22 18:31:49
+[2020-09-22 18:31:50] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 66)
+[2020-09-22 18:31:50] 
+[2020-09-22 18:31:50] 2020/09/22 18:31:49
+[2020-09-22 18:31:50] [发送 CNS 消息]: ev_CnsDisconnect_Nty[3217].  bActiveExit:1
+[2020-09-22 18:45:40] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:45:40] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 67!
+[2020-09-22 18:45:40] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 67!
+[2020-09-22 18:45:40] 
+[2020-09-22 18:45:40] 2020/09/22 18:45:40
+[2020-09-22 18:45:40] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:45:40] 
+[2020-09-22 18:45:40] 2020/09/22 18:45:40
+[2020-09-22 18:45:40] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:45:40] 
+[2020-09-22 18:45:40] 2020/09/22 18:45:40
+[2020-09-22 18:45:40] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 18:45:40] 
+[2020-09-22 18:45:40] 2020/09/22 18:45:40
+[2020-09-22 18:45:40] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 18:45:40] 
+[2020-09-22 18:45:40] 2020/09/22 18:45:41
+[2020-09-22 18:45:40] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 18:45:40] 
+[2020-09-22 18:45:40] 2020/09/22 18:45:41
+[2020-09-22 18:45:40] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:1
+[2020-09-22 18:45:40] 
+[2020-09-22 18:45:40] 2020/09/22 18:45:41
+[2020-09-22 18:45:40] onfType: 2 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 18:45:41] 
+[2020-09-22 18:45:41] 2020/09/22 18:45:41
+[2020-09-22 18:45:41] [收到 CNS 消息]: ev_tppCodecEncryptKey_Nty[43080].  Key:ABCabc123, EmTPEncryptType:2, Length:16
+[2020-09-22 18:45:41] 
+[2020-09-22 18:45:41] 2020/09/22 18:45:41
+[2020-09-22 18:45:41] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 18:45:41] 
+[2020-09-22 18:45:41] 2020/09/22 18:45:41
+[2020-09-22 18:45:41] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:新硬件2次改版设备3527 IP:0.0.0.0
+[2020-09-22 18:45:41] 
+[2020-09-22 18:45:41] 2020/09/22 18:45:41
+[2020-09-22 18:45:41] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:0, m_abHaveSrc:<1, 1, 1, 1>, bIsCheckSuc:1, bIsShowErr:0
+[2020-09-22 18:45:52] 
+[2020-09-22 18:45:52] 2020/09/22 18:45:52
+[2020-09-22 18:45:52] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:0, m_abHaveSrc:<1, 1, 1, 1>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 18:45:58] 
+[2020-09-22 18:45:58] 2020/09/22 18:45:58
+[2020-09-22 18:45:58] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:45:58] 
+[2020-09-22 18:46:41] 
+[2020-09-22 18:46:41] 2020/09/22 18:46:41
+[2020-09-22 18:46:41] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:0, m_abHaveSrc:<0, 0, 0, 0>, bIsCheckSuc:0, bIsShowErr:1
+[2020-09-22 18:46:42] 
+[2020-09-22 18:46:42] 2020/09/22 18:46:42
+[2020-09-22 18:46:42] [收到 CNS 消息]: ev_tppSelfInspection_Ind[43860].  m_bHaveError:1, m_abHaveSrc:<1, 1, 1, 0>, bIsCheckSuc:1, bIsShowErr:1
+[2020-09-22 18:46:59] 
+[2020-09-22 18:46:59] 2020/09/22 18:46:59
+[2020-09-22 18:46:59] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:46:59] 
+[2020-09-22 18:48:00] 
+[2020-09-22 18:48:00] 2020/09/22 18:48:00
+[2020-09-22 18:48:00] [收到 CNS 消息]: ev_TpCbbSms_Ind[43760].  消息:您即将被轮询!
+[2020-09-22 18:48:00] 
+[2020-09-22 18:48:14] [Osp]sock receive error, errno 10054
+[2020-09-22 18:48:14] Osp: node 67 (172.16.35.27) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 18:48:14] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 67
+[2020-09-22 18:48:14] [osp]: node(67) discon.reason is 3.
+[2020-09-22 18:48:14] 
+[2020-09-22 18:48:14] 2020/09/22 18:48:15
+[2020-09-22 18:48:14] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 67)
+[2020-09-22 18:48:14] 
+[2020-09-22 18:48:14] 2020/09/22 18:48:15
+[2020-09-22 18:48:14] [发送 CNS 消息]: ev_CnsDisconnect_Nty[3217].  bActiveExit:0
+[2020-09-22 18:48:19] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:24] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:24] 
+[2020-09-22 18:48:24] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 18:48:29] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:29] 
+[2020-09-22 18:48:29] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 18:48:34] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:34] 
+[2020-09-22 18:48:34] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 18:48:39] 
+[2020-09-22 18:48:39] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 18:48:39] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:44] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:44] 
+[2020-09-22 18:48:44] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 18:48:49] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:49] 
+[2020-09-22 18:48:49] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 18:48:54] 
+[2020-09-22 18:48:54] Osp: OspConnectTcpNode() Connect TimeOut!
+[2020-09-22 18:48:54] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:57] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 68!
+[2020-09-22 18:48:57] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 68!
+[2020-09-22 18:48:57] 
+[2020-09-22 18:48:57] 2020/09/22 18:48:58
+[2020-09-22 18:48:57] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:48:57] 
+[2020-09-22 18:48:57] 2020/09/22 18:48:58
+[2020-09-22 18:48:57] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:48:57] Osp: node68 (172.16.35.27) disconnected by app.
+[2020-09-22 18:48:57] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 68
+[2020-09-22 18:48:57] [osp]: node(68) discon.reason is 4.
+[2020-09-22 18:48:57] 
+[2020-09-22 18:48:57] 2020/09/22 18:48:58
+[2020-09-22 18:48:57] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 68)
+[2020-09-22 18:48:59] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:48:59] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 69!
+[2020-09-22 18:48:59] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 69!
+[2020-09-22 18:48:59] 
+[2020-09-22 18:48:59] 2020/09/22 18:49:00
+[2020-09-22 18:48:59] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:48:59] 
+[2020-09-22 18:48:59] 2020/09/22 18:49:00
+[2020-09-22 18:48:59] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:48:59] Osp: node69 (172.16.35.27) disconnected by app.
+[2020-09-22 18:48:59] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 69
+[2020-09-22 18:48:59] [osp]: node(69) discon.reason is 4.
+[2020-09-22 18:48:59] 
+[2020-09-22 18:48:59] 2020/09/22 18:49:00
+[2020-09-22 18:48:59] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 69)
+[2020-09-22 18:49:04] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:49:04] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 70!
+[2020-09-22 18:49:04] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 70!
+[2020-09-22 18:49:04] 
+[2020-09-22 18:49:04] 2020/09/22 18:49:05
+[2020-09-22 18:49:04] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:49:04] 
+[2020-09-22 18:49:04] 2020/09/22 18:49:05
+[2020-09-22 18:49:04] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:49:04] Osp: node70 (172.16.35.27) disconnected by app.
+[2020-09-22 18:49:04] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 70
+[2020-09-22 18:49:04] [osp]: node(70) discon.reason is 4.
+[2020-09-22 18:49:04] 
+[2020-09-22 18:49:04] 2020/09/22 18:49:05
+[2020-09-22 18:49:04] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 70)
+[2020-09-22 18:49:09] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:49:09] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 71!
+[2020-09-22 18:49:09] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 71!
+[2020-09-22 18:49:09] 
+[2020-09-22 18:49:09] 2020/09/22 18:49:10
+[2020-09-22 18:49:09] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:49:09] 
+[2020-09-22 18:49:09] 2020/09/22 18:49:10
+[2020-09-22 18:49:09] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:49:09] Osp: node71 (172.16.35.27) disconnected by app.
+[2020-09-22 18:49:09] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 71
+[2020-09-22 18:49:09] [osp]: node(71) discon.reason is 4.
+[2020-09-22 18:49:09] 
+[2020-09-22 18:49:09] 2020/09/22 18:49:10
+[2020-09-22 18:49:09] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 71)
+[2020-09-22 18:49:14] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:49:14] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 72!
+[2020-09-22 18:49:14] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 72!
+[2020-09-22 18:49:14] 
+[2020-09-22 18:49:14] 2020/09/22 18:49:15
+[2020-09-22 18:49:14] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:49:14] 
+[2020-09-22 18:49:14] 2020/09/22 18:49:15
+[2020-09-22 18:49:14] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:49:14] Osp: node72 (172.16.35.27) disconnected by app.
+[2020-09-22 18:49:14] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 72
+[2020-09-22 18:49:14] [osp]: node(72) discon.reason is 4.
+[2020-09-22 18:49:14] 
+[2020-09-22 18:49:14] 2020/09/22 18:49:15
+[2020-09-22 18:49:14] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 72)
+[2020-09-22 18:49:19] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:49:19] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 73!
+[2020-09-22 18:49:19] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 73!
+[2020-09-22 18:49:19] 
+[2020-09-22 18:49:19] 2020/09/22 18:49:20
+[2020-09-22 18:49:19] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:49:19] 
+[2020-09-22 18:49:19] 2020/09/22 18:49:20
+[2020-09-22 18:49:19] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:49:19] Osp: node73 (172.16.35.27) disconnected by app.
+[2020-09-22 18:49:19] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 73
+[2020-09-22 18:49:19] [osp]: node(73) discon.reason is 4.
+[2020-09-22 18:49:19] 
+[2020-09-22 18:49:19] 2020/09/22 18:49:20
+[2020-09-22 18:49:19] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 73)
+[2020-09-22 18:49:24] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:49:24] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 74!
+[2020-09-22 18:49:24] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 74!
+[2020-09-22 18:49:24] 
+[2020-09-22 18:49:24] 2020/09/22 18:49:25
+[2020-09-22 18:49:24] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:49:24] 
+[2020-09-22 18:49:24] 2020/09/22 18:49:25
+[2020-09-22 18:49:24] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:49:24] Osp: node74 (172.16.35.27) disconnected by app.
+[2020-09-22 18:49:24] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 74
+[2020-09-22 18:49:24] [osp]: node(74) discon.reason is 4.
+[2020-09-22 18:49:24] 
+[2020-09-22 18:49:24] 2020/09/22 18:49:25
+[2020-09-22 18:49:24] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 74)
+[2020-09-22 18:49:29] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:49:29] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 75!
+[2020-09-22 18:49:29] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 75!
+[2020-09-22 18:49:29] 
+[2020-09-22 18:49:29] 2020/09/22 18:49:30
+[2020-09-22 18:49:29] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:49:29] 
+[2020-09-22 18:49:29] 2020/09/22 18:49:30
+[2020-09-22 18:49:29] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 5, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:49:29] Osp: node75 (172.16.35.27) disconnected by app.
+[2020-09-22 18:49:29] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 75
+[2020-09-22 18:49:29] [osp]: node(75) discon.reason is 4.
+[2020-09-22 18:49:29] 
+[2020-09-22 18:49:29] 2020/09/22 18:49:30
+[2020-09-22 18:49:29] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 75)
+[2020-09-22 18:49:34] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:49:34] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 76!
+[2020-09-22 18:49:34] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 76!
+[2020-09-22 18:49:34] 
+[2020-09-22 18:49:34] 2020/09/22 18:49:35
+[2020-09-22 18:49:34] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:49:38] Osp: node76 (172.16.35.27) disconnected by app.
+[2020-09-22 18:49:38] Osp: post OSP_DISCONNECT message to apps: 540,1 for node: 76
+[2020-09-22 18:49:38] 
+[2020-09-22 18:49:38] 2020/09/22 18:49:38
+[2020-09-22 18:49:38] [收到 CNS 消息]: OSP_DISCONNECT[262].  Link Break (NodeID: 76)[osp]: node(76) discon.reason is 4.
+[2020-09-22 18:49:38] 
+[2020-09-22 18:49:39] Osp: connecting to 172.16.35.27@60002, please wait...
+[2020-09-22 18:49:39] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 77!
+[2020-09-22 18:49:39] Osp: connect to 172.16.35.27@60002 OK, the nodeid = 77!
+[2020-09-22 18:49:39] 
+[2020-09-22 18:49:39] 2020/09/22 18:49:40
+[2020-09-22 18:49:39] [发送 CNS 消息]: ev_CnLogin_Req[42463].  UserName=admin, Version=5.2.1.4.5.20200922
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_CnLogin_Rsp[42464].  EmTpLoginUmsRet: 0, ErrorCode: 0, ErrorNumber: 0 
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [发送 CNS 消息]: ev_OpenCnsManage_Nty[3216].  TPad Show CnsManage
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] onfType: 0 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 18:49:42] [Osp]sock receive error, errno 10054
+[2020-09-22 18:49:42] Osp: node 1 (127.0.0.1) recv msg fail, will be deleted. SockErr=0
+[2020-09-22 18:49:42] Osp: post OSP_DISCONNECT message to apps: 1,1 for node: 1
+[2020-09-22 18:49:42] [osp]: node(1) discon.reason is 3.
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_tppSetDataServerInfo_Nty[43076].  数据服务器配置信息 IP:0.0.0.0
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_CnCfgCnsInfo_Ind[42466].  获得会场名称
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_CnFtpInfo_Nty[43689].  bOpen:0
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] onfType: 0 (1:emCallType_P2P, 2:emCallType_Conf),  bMixMotive:1  
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:42] 2020/09/22 18:49:42
+[2020-09-22 18:49:42] [收到 CNS 消息]: ev_TppIsRcvDual_Nty[42664].  bRcvDual: 0, Inst: 1 
+[2020-09-22 18:49:42] 
+[2020-09-22 18:49:43] 2020/09/22 18:49:43
+[2020-09-22 18:49:43] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:新硬件2次改版设备3527 IP:0.0.0.0
+[2020-09-22 18:49:43] 
+[2020-09-22 18:49:43] 2020/09/22 18:49:43
+[2020-09-22 18:49:43] [收到 CNS 消息]: ev_tpp_JoinWBConf_Cmd[43072].  加入白板会议 会议名:新硬件2次改版设备3527 IP:0.0.0.0
+
+[END] 2020-09-22 18:50:16
